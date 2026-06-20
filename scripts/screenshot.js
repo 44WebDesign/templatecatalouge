@@ -17,10 +17,12 @@ const ROOT = process.env.CATALOGUE_ROOT
   ? path.resolve(process.env.CATALOGUE_ROOT)
   : process.cwd();
 const SCREENSHOT_DIR = path.join(ROOT, "docs", "screenshots");
+const PREVIEW_DIR = path.join(ROOT, "docs", "previews");
 const BUILD_TIMEOUT_MS = 1000 * 60 * 4; // 4 minutes per project, generous but bounded
 const SERVER_PORT_START = 4123;
 
 fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });
+fs.mkdirSync(PREVIEW_DIR, { recursive: true });
 
 function runWithTimeout(cmd, cwd, timeoutMs) {
   return new Promise((resolve) => {
@@ -59,6 +61,25 @@ function startStaticServer(rootDir, port) {
     );
     server.listen(port, () => resolve(server));
   });
+}
+
+// Copies a static template's files into docs/previews/<slug>/ so GitHub
+// Pages (which only serves the docs/ folder) can host it directly and we
+// can link to a real working preview, not just a screenshot.
+function copyForPreview(sourceDir, slug) {
+  const destDir = path.join(PREVIEW_DIR, slug);
+  fs.rmSync(destDir, { recursive: true, force: true });
+  fs.mkdirSync(destDir, { recursive: true });
+  fs.cpSync(sourceDir, destDir, {
+    recursive: true,
+    filter: (src) => {
+      const base = path.basename(src);
+      // skip dev artifacts that templates sometimes ship alongside their
+      // static files -- no reason to publish these to a public preview
+      return !["node_modules", ".git", ".DS_Store"].includes(base);
+    },
+  });
+  return destDir;
 }
 
 // For frameworks that need a real server (e.g. `next start`, since plain
@@ -150,6 +171,13 @@ async function screenshotUrl(browser, url, outputPath) {
 }
 
 export async function screenshotTemplate(template, browser, portOffset) {
+  const result = await screenshotTemplateInner(template, browser, portOffset);
+  // Ensure every code path returns a previewUrl field (null if not
+  // applicable) so the front-end never has to special-case its absence.
+  return { previewUrl: null, ...result };
+}
+
+async function screenshotTemplateInner(template, browser, portOffset) {
   const folderPath = path.join(ROOT, template.folder);
   const outputPath = path.join(SCREENSHOT_DIR, `${template.slug}.png`);
   const port = SERVER_PORT_START + portOffset;
@@ -162,10 +190,20 @@ export async function screenshotTemplate(template, browser, portOffset) {
     )}`;
     const ok = await screenshotUrl(browser, url, outputPath);
     server.close();
+
+    let previewUrl = null;
+    try {
+      copyForPreview(folderPath, template.slug);
+      previewUrl = `previews/${template.slug}/${template.entry.replace(/^\/?/, "")}`;
+    } catch (err) {
+      console.error(`  Failed to copy ${template.slug} for preview:`, err.message);
+    }
+
     return {
       ...template,
       screenshot: ok ? `screenshots/${template.slug}.png` : null,
       needsManualScreenshot: !ok,
+      previewUrl,
     };
   }
 
