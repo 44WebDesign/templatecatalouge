@@ -61,6 +61,53 @@ function startStaticServer(rootDir, port) {
   });
 }
 
+// For frameworks that need a real server (e.g. `next start`, since plain
+// `next build` produces a server bundle, not static files, unless the
+// project explicitly opts into `output: 'export'`). Spawns the process,
+// polls the port until it responds, and returns a handle we can kill later.
+function startBackgroundServer(cmd, cwd, port, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const child = spawn(cmd, {
+      cwd,
+      shell: true,
+      env: { ...process.env, PORT: String(port) },
+    });
+
+    let settled = false;
+    let stderr = "";
+    child.stderr?.on("data", (d) => (stderr += d.toString()));
+    child.on("exit", (code) => {
+      if (!settled) {
+        settled = true;
+        reject(new Error(`Server exited early (code ${code}): ${stderr}`));
+      }
+    });
+
+    const deadline = Date.now() + timeoutMs;
+    const poll = async () => {
+      if (settled) return;
+      if (Date.now() > deadline) {
+        settled = true;
+        child.kill("SIGKILL");
+        reject(new Error(`Server on port ${port} never became ready`));
+        return;
+      }
+      try {
+        const res = await fetch(`http://localhost:${port}/`);
+        if (res.ok || res.status < 500) {
+          settled = true;
+          resolve(child);
+          return;
+        }
+      } catch {
+        // not up yet, keep polling
+      }
+      setTimeout(poll, 1000);
+    };
+    setTimeout(poll, 1500); // give it a moment before the first check
+  });
+}
+
 async function screenshotUrl(browser, url, outputPath) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1440, height: 900 });
@@ -132,27 +179,63 @@ export async function screenshotTemplate(template, browser, portOffset) {
     }
 
     const outputDir = findBuildOutput(folderPath);
-    if (!outputDir) {
+
+    if (outputDir) {
+      // Static export found (out/, dist/, build/) -- serve it directly.
+      const server = await startStaticServer(
+        path.join(folderPath, outputDir),
+        port
+      );
+      const url = `http://localhost:${port}/index.html`;
+      const ok = await screenshotUrl(browser, url, outputPath);
+      server.close();
+
       return {
         ...template,
-        screenshot: null,
-        needsManualScreenshot: true,
-        buildError: "Build succeeded but no recognizable output folder found",
+        screenshot: ok ? `screenshots/${template.slug}.png` : null,
+        needsManualScreenshot: !ok,
       };
     }
 
-    const server = await startStaticServer(
-      path.join(folderPath, outputDir),
-      port
-    );
-    const url = `http://localhost:${port}/index.html`;
-    const ok = await screenshotUrl(browser, url, outputPath);
-    server.close();
+    if (template.buildTool === "next") {
+      // Plain `next build` without `output: 'export'` produces a server
+      // bundle (.next/), not static files. Run `next start` and screenshot
+      // against the live server instead.
+      console.log(`  No static export found, trying "next start" for ${template.slug}...`);
+      let server;
+      try {
+        server = await startBackgroundServer(
+          "npx next start -p " + port,
+          folderPath,
+          port,
+          60000 // 1 minute to boot
+        );
+      } catch (err) {
+        console.error(`  next start failed for ${template.slug}:`, err.message);
+        return {
+          ...template,
+          screenshot: null,
+          needsManualScreenshot: true,
+          buildError: `next start failed to come up: ${err.message}`,
+        };
+      }
+
+      const url = `http://localhost:${port}/`;
+      const ok = await screenshotUrl(browser, url, outputPath);
+      server.kill("SIGKILL");
+
+      return {
+        ...template,
+        screenshot: ok ? `screenshots/${template.slug}.png` : null,
+        needsManualScreenshot: !ok,
+      };
+    }
 
     return {
       ...template,
-      screenshot: ok ? `screenshots/${template.slug}.png` : null,
-      needsManualScreenshot: !ok,
+      screenshot: null,
+      needsManualScreenshot: true,
+      buildError: "Build succeeded but no recognizable output folder found",
     };
   }
 
