@@ -67,9 +67,16 @@ function startStaticServer(rootDir, port) {
 // polls the port until it responds, and returns a handle we can kill later.
 function startBackgroundServer(cmd, cwd, port, timeoutMs) {
   return new Promise((resolve, reject) => {
+    // `detached: true` makes this process the leader of a new process
+    // group, so killing by *negative* pid (the group) reaches the shell
+    // AND everything it spawned (npx -> next's actual server process).
+    // Killing child.pid alone only kills the shell wrapper and leaves
+    // the real server running -- which is what was causing the workflow
+    // to hang indefinitely even after all visible work had finished.
     const child = spawn(cmd, {
       cwd,
       shell: true,
+      detached: true,
       env: { ...process.env, PORT: String(port) },
     });
 
@@ -88,7 +95,7 @@ function startBackgroundServer(cmd, cwd, port, timeoutMs) {
       if (settled) return;
       if (Date.now() > deadline) {
         settled = true;
-        child.kill("SIGKILL");
+        killProcessGroup(child);
         reject(new Error(`Server on port ${port} never became ready`));
         return;
       }
@@ -106,6 +113,23 @@ function startBackgroundServer(cmd, cwd, port, timeoutMs) {
     };
     setTimeout(poll, 1500); // give it a moment before the first check
   });
+}
+
+// Kill the entire process group spawned for a background server, not just
+// the immediate shell process. See comment in startBackgroundServer above.
+function killProcessGroup(child) {
+  try {
+    process.kill(-child.pid, "SIGKILL");
+  } catch (err) {
+    // Group kill can fail if the process already exited or on platforms
+    // without process groups (shouldn't happen on the Linux CI runner this
+    // targets) -- fall back to killing just the direct child.
+    try {
+      child.kill("SIGKILL");
+    } catch {
+      // already dead, nothing to do
+    }
+  }
 }
 
 async function screenshotUrl(browser, url, outputPath) {
@@ -222,7 +246,7 @@ export async function screenshotTemplate(template, browser, portOffset) {
 
       const url = `http://localhost:${port}/`;
       const ok = await screenshotUrl(browser, url, outputPath);
-      server.kill("SIGKILL");
+      killProcessGroup(server);
 
       return {
         ...template,
