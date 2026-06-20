@@ -1,0 +1,111 @@
+// build-catalogue.js
+// Orchestrates the full pipeline:
+//   1. discover all template folders
+//   2. compare against existing catalogue.json to skip unchanged templates
+//      (so a push that only touches one folder doesn't re-screenshot/re-tag everything)
+//   3. screenshot + tag anything new or changed
+//   4. write the merged result back to docs/catalogue.json
+
+import fs from "fs";
+import path from "path";
+import crypto from "crypto";
+import { discoverTemplates } from "./discover.js";
+import { screenshotAll } from "./screenshot.js";
+import { tagAll } from "./tag.js";
+
+const CATALOGUE_PATH = path.join(process.cwd(), "docs", "catalogue.json");
+
+function loadExistingCatalogue() {
+  if (!fs.existsSync(CATALOGUE_PATH)) return {};
+  try {
+    const data = JSON.parse(fs.readFileSync(CATALOGUE_PATH, "utf-8"));
+    const bySlug = {};
+    for (const entry of data.templates || []) {
+      bySlug[entry.slug] = entry;
+    }
+    return bySlug;
+  } catch {
+    return {};
+  }
+}
+
+// Hash the folder's file listing + sizes as a cheap "has this changed" check.
+// Good enough to detect added/removed/modified files without reading every byte.
+function hashFolder(folder) {
+  const folderPath = path.join(process.cwd(), folder);
+  const fingerprint = [];
+
+  function walk(dir) {
+    let entries;
+    try {
+      entries = fs.readdirSync(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      if (entry.name === "node_modules" || entry.name.startsWith(".git"))
+        continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+      } else {
+        const stat = fs.statSync(full);
+        fingerprint.push(`${full}:${stat.size}:${stat.mtimeMs}`);
+      }
+    }
+  }
+
+  walk(folderPath);
+  fingerprint.sort();
+  return crypto.createHash("sha1").update(fingerprint.join("|")).digest("hex");
+}
+
+async function main() {
+  console.log("Discovering templates...");
+  const discovered = discoverTemplates();
+  console.log(`Found ${discovered.length} folders.`);
+
+  const existing = loadExistingCatalogue();
+
+  const toProcess = [];
+  const unchanged = [];
+
+  for (const template of discovered) {
+    const hash = hashFolder(template.folder);
+    const prior = existing[template.slug];
+
+    if (prior && prior.contentHash === hash && !prior.needsManualScreenshot) {
+      unchanged.push(prior);
+    } else {
+      toProcess.push({ ...template, contentHash: hash });
+    }
+  }
+
+  console.log(
+    `${unchanged.length} unchanged, ${toProcess.length} new/changed -> processing.`
+  );
+
+  let processed = [];
+  if (toProcess.length > 0) {
+    const screenshotted = await screenshotAll(toProcess);
+    processed = await tagAll(screenshotted);
+  }
+
+  const allTemplates = [...unchanged, ...processed].sort((a, b) =>
+    a.slug.localeCompare(b.slug)
+  );
+
+  const output = {
+    generatedAt: new Date().toISOString(),
+    templates: allTemplates,
+  };
+
+  fs.mkdirSync(path.dirname(CATALOGUE_PATH), { recursive: true });
+  fs.writeFileSync(CATALOGUE_PATH, JSON.stringify(output, null, 2));
+  console.log(`Wrote ${allTemplates.length} templates to catalogue.json`);
+}
+
+main().catch((err) => {
+  console.error("Catalogue build failed:", err);
+  process.exit(1);
+});

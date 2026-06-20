@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Template Catalogue</title>
+<style>
+  :root {
+    --bg: #f6f5f3;
+    --surface: #ffffff;
+    --border: #e2e0db;
+    --text: #1c1b19;
+    --text-muted: #6b6862;
+    --accent: #2952e3;
+    --accent-soft: #ebefff;
+    --warn: #b5571a;
+    --warn-soft: #fdeee2;
+    --radius: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  header {
+    padding: 28px 32px 18px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+
+  .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  #search {
+    flex: 1;
+    min-width: 220px;
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    font-size: 14px;
+    background: var(--bg);
+  }
+
+  #search:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+  .tag-filters {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .tag-chip {
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 12.5px;
+    cursor: pointer;
+    color: var(--text-muted);
+    user-select: none;
+  }
+
+  .tag-chip.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+
+  .clear-filters {
+    font-size: 12.5px;
+    color: var(--accent);
+    cursor: pointer;
+    text-decoration: underline;
+    display: none;
+  }
+
+  main {
+    padding: 24px 32px 60px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .thumb {
+    aspect-ratio: 16/10;
+    background: #efeeec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .thumb .placeholder {
+    color: var(--text-muted);
+    font-size: 12.5px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--warn-soft);
+    color: var(--warn);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .card-body {
+    padding: 14px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .card-title {
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: capitalize;
+  }
+
+  .card-desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .card-tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  .pill {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .pill.style { background: #f1eee8; color: #7a5c2e; }
+  .pill.color { background: #ece8f7; color: #5d3fa3; }
+
+  .card-link {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 80px 20px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Template Catalogue</h1>
+  <div class="meta" id="meta-line">Loading…</div>
+  <div class="controls">
+    <input id="search" type="text" placeholder="Search by name, industry, or style (e.g. cafe, dark, minimal)…" />
+    <span class="clear-filters" id="clear-filters">Clear filters</span>
+  </div>
+  <div class="tag-filters" id="tag-filters"></div>
+</header>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="empty-state" id="empty-state" style="display:none;">No templates match your search.</div>
+</main>
+
+<script>
+let allTemplates = [];
+let activeTags = new Set();
+
+async function load() {
+  const res = await fetch('catalogue.json');
+  const data = await res.json();
+  allTemplates = data.templates || [];
+  document.getElementById('meta-line').textContent =
+    `${allTemplates.length} templates · last updated ${new Date(data.generatedAt).toLocaleString()}`;
+  buildTagFilters();
+  render();
+}
+
+function buildTagFilters() {
+  const tagCounts = {};
+  for (const t of allTemplates) {
+    const tags = [
+      ...(t.tags?.industry_tags || []),
+      ...(t.tags?.style_tags || []),
+    ];
+    for (const tag of tags) {
+      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+    }
+  }
+  const sorted = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]).slice(0, 24);
+  const container = document.getElementById('tag-filters');
+  container.innerHTML = '';
+  for (const [tag] of sorted) {
+    const chip = document.createElement('div');
+    chip.className = 'tag-chip';
+    chip.textContent = tag;
+    chip.onclick = () => {
+      if (activeTags.has(tag)) activeTags.delete(tag);
+      else activeTags.add(tag);
+      render();
+    };
+    container.appendChild(chip);
+  }
+}
+
+function matchesSearch(template, query) {
+  if (!query) return true;
+  const haystack = [
+    template.slug,
+    template.tags?.description,
+    ...(template.tags?.industry_tags || []),
+    ...(template.tags?.style_tags || []),
+    template.tags?.color_mode,
+  ].filter(Boolean).join(' ').toLowerCase();
+  return haystack.includes(query.toLowerCase());
+}
+
+function matchesActiveTags(template) {
+  if (activeTags.size === 0) return true;
+  const tags = new Set([
+    ...(template.tags?.industry_tags || []),
+    ...(template.tags?.style_tags || []),
+  ]);
+  for (const t of activeTags) {
+    if (!tags.has(t)) return false;
+  }
+  return true;
+}
+
+function render() {
+  const query = document.getElementById('search').value.trim();
+  const grid = document.getElementById('grid');
+  const emptyState = document.getElementById('empty-state');
+
+  document.querySelectorAll('.tag-chip').forEach(chip => {
+    chip.classList.toggle('active', activeTags.has(chip.textContent));
+  });
+  document.getElementById('clear-filters').style.display =
+    activeTags.size > 0 || query ? 'inline' : 'none';
+
+  const filtered = allTemplates.filter(t => matchesSearch(t, query) && matchesActiveTags(t));
+
+  grid.innerHTML = '';
+  emptyState.style.display = filtered.length === 0 ? 'block' : 'none';
+
+  for (const t of filtered) {
+    grid.appendChild(renderCard(t));
+  }
+}
+
+function renderCard(t) {
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  const thumb = document.createElement('div');
+  thumb.className = 'thumb';
+  if (t.screenshot) {
+    const img = document.createElement('img');
+    img.src = t.screenshot;
+    img.alt = `${t.slug} homepage screenshot`;
+    img.loading = 'lazy';
+    thumb.appendChild(img);
+  } else {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'placeholder';
+    placeholder.textContent = t.needsManualScreenshot
+      ? 'Screenshot pending — needs manual capture'
+      : 'No screenshot yet';
+    thumb.appendChild(placeholder);
+  }
+  if (t.needsManualScreenshot) {
+    const badge = document.createElement('div');
+    badge.className = 'badge';
+    badge.textContent = 'Needs manual screenshot';
+    thumb.appendChild(badge);
+  }
+  card.appendChild(thumb);
+
+  const body = document.createElement('div');
+  body.className = 'card-body';
+
+  const title = document.createElement('div');
+  title.className = 'card-title';
+  title.textContent = t.slug.replace(/-/g, ' ');
+  body.appendChild(title);
+
+  const desc = document.createElement('div');
+  desc.className = 'card-desc';
+  desc.textContent = t.tags?.description || (t.tagError ? 'Not yet tagged.' : '');
+  body.appendChild(desc);
+
+  const tagsRow = document.createElement('div');
+  tagsRow.className = 'card-tags';
+  for (const tag of (t.tags?.industry_tags || [])) {
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    pill.textContent = tag;
+    tagsRow.appendChild(pill);
+  }
+  for (const tag of (t.tags?.style_tags || [])) {
+    const pill = document.createElement('span');
+    pill.className = 'pill style';
+    pill.textContent = tag;
+    tagsRow.appendChild(pill);
+  }
+  if (t.tags?.color_mode) {
+    const pill = document.createElement('span');
+    pill.className = 'pill color';
+    pill.textContent = t.tags.color_mode;
+    tagsRow.appendChild(pill);
+  }
+  body.appendChild(tagsRow);
+
+  const link = document.createElement('a');
+  link.className = 'card-link';
+  link.href = `https://github.com/44WebDesign/templatecatalouge/tree/main/${t.folder}`;
+  link.target = '_blank';
+  link.textContent = 'View source on GitHub →';
+  body.appendChild(link);
+
+  card.appendChild(body);
+  return card;
+}
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('clear-filters').addEventListener('click', () => {
+  activeTags.clear();
+  document.getElementById('search').value = '';
+  render();
+});
+
+load();
+</script>
+</body>
+</html>
