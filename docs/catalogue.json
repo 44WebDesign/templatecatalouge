@@ -1,62 +1,68 @@
 {
-  "generatedAt": "2026-06-20T19:30:08.805Z",
+  "generatedAt": "2026-06-20T19:44:26.357Z",
   "templates": [
     {
+      "previewUrl": null,
       "slug": "agrica",
       "type": "build",
       "buildTool": "next",
       "folder": "agrica",
-      "contentHash": "6818f1e8f466242a56cec3d4626636b376ec8f2c",
+      "contentHash": "94333f47e1139e45abebb382eb1207e0cf0890ab",
       "screenshot": "screenshots/agrica.png",
       "needsManualScreenshot": false,
       "tags": null
     },
     {
+      "previewUrl": null,
       "slug": "automec",
       "type": "build",
       "buildTool": "vite",
       "folder": "automec",
-      "contentHash": "bcdadb6a4cc16b969f6156db8a2590b5db646764",
+      "contentHash": "9f75657a270820f12a8d8ba2acefd092e8cca4c3",
       "screenshot": "screenshots/automec.png",
       "needsManualScreenshot": false,
       "tags": null
     },
     {
+      "previewUrl": "previews/carservx/index.html",
       "slug": "carservx",
       "type": "static",
       "entry": "index.html",
       "folder": "carservx",
-      "contentHash": "9c4651c21e9fb1ded06b00f4f208c1e026a5efdb",
+      "contentHash": "fa59cae71ea410b1bcb9e0b8279a4ad152033218",
       "screenshot": "screenshots/carservx.png",
       "needsManualScreenshot": false,
       "tags": null
     },
     {
+      "previewUrl": "previews/crank/index.html",
       "slug": "crank",
       "type": "static",
       "entry": "index.html",
       "folder": "crank",
-      "contentHash": "0b7161ad4e13637e6b6ec274fc04dc4bb962f935",
+      "contentHash": "f4139931b473920e8e4df5194eb116212b507914",
       "screenshot": "screenshots/crank.png",
       "needsManualScreenshot": false,
       "tags": null
     },
     {
+      "previewUrl": "previews/farmix/index.html",
       "slug": "farmix",
       "type": "static",
       "entry": "index.html",
       "folder": "farmix",
-      "contentHash": "9d2b1b39116f86eaf099b4bf08cd46cea0ec7753",
+      "contentHash": "5214e2daee26e1d1f16dd933525ce3b80ba0eb51",
       "screenshot": "screenshots/farmix.png",
       "needsManualScreenshot": false,
       "tags": null
     },
     {
+      "previewUrl": "previews/hotcoffee-html/index.html",
       "slug": "hotcoffee-html",
       "type": "static",
       "entry": "index.html",
       "folder": "hotcoffee-html",
-      "contentHash": "24c4c820cf5dd4ddd23126f1e759ce685af72f5b",
+      "contentHash": "22cd3d922a436994a6ec2f3bf28c388c0c8a9f02",
       "screenshot": "screenshots/hotcoffee-html.png",
       "needsManualScreenshot": false,
       "tags": null
