@@ -200,6 +200,20 @@
     text-decoration: none;
   }
 
+  .card-link-primary {
+    display: block;
+    background: var(--accent);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .card-link-primary:hover {
+    opacity: 0.9;
+  }
+
   .empty-state {
     text-align: center;
     color: var(--text-muted);
@@ -513,6 +527,15 @@ function renderCard(t) {
     tagsRow.appendChild(pill);
   }
   body.appendChild(tagsRow);
+
+  if (t.previewUrl) {
+    const previewLink = document.createElement('a');
+    previewLink.className = 'card-link card-link-primary';
+    previewLink.href = t.previewUrl;
+    previewLink.target = '_blank';
+    previewLink.textContent = 'View live preview →';
+    body.appendChild(previewLink);
+  }
 
   const link = document.createElement('a');
   link.className = 'card-link';
