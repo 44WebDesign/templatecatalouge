@@ -1,0 +1,71 @@
+name: Build Template Catalogue
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-catalogue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install catalogue builder dependencies
+        run: npm install
+        working-directory: .
+
+      - name: Install Chrome dependencies for Puppeteer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 \
+            libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 \
+            libgbm1 libasound2t64 libpango-1.0-0 libxshmfence1
+
+      - name: Run catalogue builder
+        run: npm run build
+
+      - name: Commit updated catalogue
+        run: |
+          git config user.name "catalogue-bot"
+          git config user.email "actions@github.com"
+          git add docs/catalogue.json docs/screenshots
+          git diff --staged --quiet || git commit -m "Update template catalogue [skip ci]"
+          git push
+
+  deploy-pages:
+    needs: build-catalogue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Pull latest (post catalogue commit)
+        run: git pull origin main
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
