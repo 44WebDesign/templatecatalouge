@@ -1,4 +1,66 @@
 {
-  "generatedAt": null,
-  "templates": []
+  "generatedAt": "2026-06-20T14:06:29.656Z",
+  "templates": [
+    {
+      "slug": "agrica",
+      "type": "build",
+      "buildTool": "next",
+      "folder": "agrica",
+      "contentHash": "6116d754a9fc21e80e39ad209eca192908bd0644",
+      "screenshot": null,
+      "needsManualScreenshot": true,
+      "buildError": "Build succeeded but no recognizable output folder found",
+      "tags": null
+    },
+    {
+      "slug": "automec",
+      "type": "build",
+      "buildTool": "vite",
+      "folder": "automec",
+      "contentHash": "c633a0099b26150baf34fd97f8a8d8ff55ecd75c",
+      "screenshot": "screenshots/automec.png",
+      "needsManualScreenshot": false,
+      "tags": null
+    },
+    {
+      "slug": "carservx",
+      "type": "static",
+      "entry": "index.html",
+      "folder": "carservx",
+      "contentHash": "60e26e22f01f5eba28adea5616f72bbd307c8fa2",
+      "screenshot": "screenshots/carservx.png",
+      "needsManualScreenshot": false,
+      "tags": null
+    },
+    {
+      "slug": "crank",
+      "type": "static",
+      "entry": "index.html",
+      "folder": "crank",
+      "contentHash": "791e099e8c4df54ea4804020eaf8b6e9415cae72",
+      "screenshot": "screenshots/crank.png",
+      "needsManualScreenshot": false,
+      "tags": null
+    },
+    {
+      "slug": "farmix",
+      "type": "static",
+      "entry": "index.html",
+      "folder": "farmix",
+      "contentHash": "600f973a3143a1705712f3fdb777e74aa674c4cd",
+      "screenshot": "screenshots/farmix.png",
+      "needsManualScreenshot": false,
+      "tags": null
+    },
+    {
+      "slug": "hotcoffee-html",
+      "type": "static",
+      "entry": "index.html",
+      "folder": "hotcoffee-html",
+      "contentHash": "66ff1940483b61e2f0d13792ef60233b24148c9a",
+      "screenshot": "screenshots/hotcoffee-html.png",
+      "needsManualScreenshot": false,
+      "tags": null
+    }
+  ]
 }
