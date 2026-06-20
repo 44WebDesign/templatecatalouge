@@ -6,7 +6,7 @@ you push a new template folder, GitHub will automatically:
 1. Work out if it's a plain HTML template or a React/Next project
 2. Screenshot the homepage (building React/Next projects first if needed)
 3. Update the catalogue page, live at your GitHub Pages URL
-
+ 
 Tags (industry, style, light/dark) are added by hand on the catalogue page
 itself — there's no AI tagging step, so no API costs. See "Adding tags" below.
 
