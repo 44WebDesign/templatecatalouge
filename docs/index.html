@@ -206,6 +206,131 @@
     padding: 80px 20px;
     font-size: 14px;
   }
+
+  .edit-tags-btn {
+    margin-top: 6px;
+    align-self: flex-start;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 11px;
+    font-size: 12.5px;
+    cursor: pointer;
+    color: var(--text);
+  }
+
+  .edit-tags-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 19, 17, 0.45);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+
+  .modal {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 24px 26px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal h2 {
+    margin: 0 0 8px;
+    font-size: 17px;
+  }
+
+  .modal-hint {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0 0 18px;
+  }
+
+  .modal-hint code {
+    background: var(--bg);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+
+  #tag-form label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    margin: 14px 0 5px;
+  }
+
+  .label-hint {
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  #tag-form input,
+  #tag-form select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    font-size: 13.5px;
+    background: var(--bg);
+  }
+
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+
+  .btn-secondary {
+    background: var(--bg);
+    border-color: var(--border);
+    color: var(--text);
+  }
+
+  #snippet-output {
+    margin-top: 16px;
+    background: #1c1b19;
+    color: #e8e6e1;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 11.5px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 220px;
+    overflow-y: auto;
+  }
+
+  .copy-btn {
+    margin-top: 10px;
+    width: 100%;
+  }
 </style>
 </head>
 <body>
@@ -381,8 +506,83 @@ function renderCard(t) {
   link.textContent = 'View source on GitHub →';
   body.appendChild(link);
 
+  const editBtn = document.createElement('button');
+  editBtn.className = 'edit-tags-btn';
+  editBtn.textContent = t.tags ? 'Edit tags' : '+ Add tags';
+  editBtn.onclick = () => openTagEditor(t);
+  body.appendChild(editBtn);
+
   card.appendChild(body);
   return card;
+}
+
+// --- Manual tag editor ---
+// Tags are edited here in the browser, then exported as a JSON snippet you
+// paste into docs/catalogue.json yourself and commit. There's no live
+// connection back to GitHub from this static page, so nothing saves
+// automatically -- the "Copy snippet" button is the hand-off point.
+
+function openTagEditor(t) {
+  const modal = document.getElementById('tag-modal');
+  const form = document.getElementById('tag-form');
+  form.dataset.slug = t.slug;
+
+  document.getElementById('tag-modal-title').textContent = `Edit tags — ${t.slug}`;
+  document.getElementById('industry-input').value = (t.tags?.industry_tags || []).join(', ');
+  document.getElementById('style-input').value = (t.tags?.style_tags || []).join(', ');
+  document.getElementById('color-select').value = t.tags?.color_mode || '';
+  document.getElementById('description-input').value = t.tags?.description || '';
+  document.getElementById('snippet-output').style.display = 'none';
+  document.getElementById('snippet-output').textContent = '';
+  document.getElementById('copy-snippet-btn').style.display = 'none';
+
+  modal.style.display = 'flex';
+}
+
+function closeTagEditor() {
+  document.getElementById('tag-modal').style.display = 'none';
+}
+
+function generateSnippet() {
+  const slug = document.getElementById('tag-form').dataset.slug;
+  const industry = document.getElementById('industry-input').value
+    .split(',').map(s => s.trim()).filter(Boolean);
+  const style = document.getElementById('style-input').value
+    .split(',').map(s => s.trim()).filter(Boolean);
+  const colorMode = document.getElementById('color-select').value || null;
+  const description = document.getElementById('description-input').value.trim() || null;
+
+  const tags = {
+    industry_tags: industry,
+    style_tags: style,
+    color_mode: colorMode,
+    description,
+  };
+
+  // Update the in-memory copy so the card + filters refresh immediately,
+  // even though the underlying file on GitHub hasn't changed yet.
+  const template = allTemplates.find(x => x.slug === slug);
+  if (template) template.tags = tags;
+
+  const snippet = JSON.stringify(tags, null, 2);
+  const output = document.getElementById('snippet-output');
+  output.textContent =
+    `Paste this as the "tags" value for "${slug}" in docs/catalogue.json:\n\n` + snippet;
+  output.style.display = 'block';
+  document.getElementById('copy-snippet-btn').style.display = 'inline-block';
+
+  buildTagFilters();
+  render();
+}
+
+function copySnippet() {
+  const text = document.getElementById('snippet-output').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copy-snippet-btn');
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => (btn.textContent = original), 1500);
+  });
 }
 
 document.getElementById('search').addEventListener('input', render);
@@ -392,7 +592,48 @@ document.getElementById('clear-filters').addEventListener('click', () => {
   render();
 });
 
+document.getElementById('tag-modal').addEventListener('click', (e) => {
+  if (e.target.id === 'tag-modal') closeTagEditor();
+});
+
 load();
 </script>
+<div class="modal-overlay" id="tag-modal">
+  <div class="modal">
+    <h2 id="tag-modal-title">Edit tags</h2>
+    <p class="modal-hint">
+      These tags aren't saved automatically — there's no live connection from
+      this page back to GitHub. Fill in the fields, generate the snippet,
+      then paste it into <code>docs/catalogue.json</code> for this template
+      and commit.
+    </p>
+    <form id="tag-form" onsubmit="return false;">
+      <label>Industry tags <span class="label-hint">(comma separated, e.g. cafe, restaurant)</span></label>
+      <input id="industry-input" type="text" placeholder="cafe, restaurant" />
+
+      <label>Style tags <span class="label-hint">(comma separated, e.g. minimal, bold)</span></label>
+      <input id="style-input" type="text" placeholder="minimal, warm" />
+
+      <label>Colour mode</label>
+      <select id="color-select">
+        <option value="">— Not set —</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+        <option value="mixed">Mixed</option>
+      </select>
+
+      <label>Short description</label>
+      <input id="description-input" type="text" placeholder="A cosy, minimal coffee shop landing page." />
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" onclick="closeTagEditor()">Cancel</button>
+        <button type="button" class="btn-primary" onclick="generateSnippet()">Generate snippet</button>
+      </div>
+    </form>
+    <pre id="snippet-output" style="display:none;"></pre>
+    <button type="button" id="copy-snippet-btn" class="btn-primary copy-btn" style="display:none;" onclick="copySnippet()">Copy snippet</button>
+  </div>
+</div>
+
 </body>
 </html>

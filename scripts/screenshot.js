@@ -13,7 +13,10 @@ import puppeteer from "puppeteer";
 import handler from "serve-handler";
 import http from "http";
 
-const SCREENSHOT_DIR = path.join(process.cwd(), "docs", "screenshots");
+const ROOT = process.env.CATALOGUE_ROOT
+  ? path.resolve(process.env.CATALOGUE_ROOT)
+  : process.cwd();
+const SCREENSHOT_DIR = path.join(ROOT, "docs", "screenshots");
 const BUILD_TIMEOUT_MS = 1000 * 60 * 4; // 4 minutes per project, generous but bounded
 const SERVER_PORT_START = 4123;
 
@@ -76,7 +79,7 @@ async function screenshotUrl(browser, url, outputPath) {
 }
 
 export async function screenshotTemplate(template, browser, portOffset) {
-  const folderPath = path.join(process.cwd(), template.folder);
+  const folderPath = path.join(ROOT, template.folder);
   const outputPath = path.join(SCREENSHOT_DIR, `${template.slug}.png`);
   const port = SERVER_PORT_START + portOffset;
 

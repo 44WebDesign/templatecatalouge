@@ -2,11 +2,18 @@
 // Scans the repo root, finds every template folder, and works out how to
 // view its homepage: either a static HTML file we can screenshot directly,
 // or a project that needs `npm install && npm run build` first.
+//
+// IMPORTANT: this script (and the others in this pipeline) assume they are
+// run with the current working directory set to the repo root -- that's
+// how the GitHub Action invokes them. If you ever run these manually,
+// `cd` to the repo root first or pass an explicit root as an argument.
 
 import fs from "fs";
 import path from "path";
 
-const ROOT = process.cwd();
+const ROOT = process.env.CATALOGUE_ROOT
+  ? path.resolve(process.env.CATALOGUE_ROOT)
+  : process.cwd();
 const IGNORE = new Set([
   ".git",
   ".github",

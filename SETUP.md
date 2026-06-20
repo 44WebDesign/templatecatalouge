@@ -5,8 +5,10 @@ you push a new template folder, GitHub will automatically:
 
 1. Work out if it's a plain HTML template or a React/Next project
 2. Screenshot the homepage (building React/Next projects first if needed)
-3. Ask Claude to tag it (industry, style, light/dark) and write a description
-4. Update the catalogue page, live at your GitHub Pages URL
+3. Update the catalogue page, live at your GitHub Pages URL
+
+Tags (industry, style, light/dark) are added by hand on the catalogue page
+itself — there's no AI tagging step, so no API costs. See "Adding tags" below.
 
 If a template fails to build or screenshot automatically, it still appears
 in the catalogue — just flagged "Needs manual screenshot" instead of
@@ -29,7 +31,6 @@ templatecatalouge/
 ├── scripts/
 │   ├── discover.js
 │   ├── screenshot.js
-│   ├── tag.js
 │   └── build-catalogue.js
 ├── package.json
 ├── .gitignore
@@ -45,36 +46,21 @@ The easiest way: on github.com, click **Add file → Upload files** at the
 repo root, then drag in the unzipped folder contents (GitHub will preserve
 the folder structure). Commit directly to `main`.
 
-## 2. Add your Anthropic API key as a GitHub Secret
+## 2. Turn on GitHub Pages
 
-This is what lets the tagging step call Claude. The key is never visible
-to me — it stays encrypted inside your repo settings.
-
-1. Go to **platform.claude.com** (or console.anthropic.com) and copy an API key.
-   If you don't have one yet: log in → **API Keys** → **Create Key**.
-2. In your GitHub repo, click **Settings** (top tab bar of the repo, not your
+1. In your repo, click **Settings** (top tab bar of the repo, not your
    account settings).
-3. In the left sidebar, click **Secrets and variables → Actions**.
-4. Click the green **New repository secret** button.
-5. For **Name**, enter exactly: `ANTHROPIC_API_KEY`
-6. For **Secret**, paste your API key.
-7. Click **Add secret**.
-
-That's it — don't put the key anywhere else (not in code, not in a commit).
-
-## 3. Turn on GitHub Pages
-
-1. Still in **Settings**, click **Pages** in the left sidebar.
-2. Under **Build and deployment → Source**, choose **GitHub Actions**
+2. In the left sidebar, click **Pages**.
+3. Under **Build and deployment → Source**, choose **GitHub Actions**
    (not "Deploy from a branch").
-3. Save. You don't need to pick a branch/folder — the workflow handles that.
+4. Save. You don't need to pick a branch/folder — the workflow handles that.
 
 Your catalogue will be live at:
 `https://44webdesign.github.io/templatecatalouge/`
 
 (It may take a few minutes to appear after the first successful run.)
 
-## 4. Trigger the first run
+## 3. Trigger the first run
 
 Either:
 - Push any small change (e.g. edit this README and commit), or
@@ -85,12 +71,34 @@ Watch it run under the **Actions** tab. The first run will take longer
 (building agrica and automec from scratch). Click into the run to see logs
 if anything fails.
 
-## 5. Adding new templates going forward
+## 4. Adding new templates going forward
 
 Just drag the new folder into the repo root via GitHub's web upload, same
 as before. Within a few minutes of the push finishing, the Action will run
 and the new template will appear in the catalogue automatically — no need
 to come back to me for each batch.
+
+## 5. Adding tags
+
+Tags aren't generated automatically — you add them yourself on the
+catalogue page, which takes about 20 seconds per template:
+
+1. Open your catalogue page.
+2. Find the template card, click **+ Add tags** (or **Edit tags** if it
+   already has some).
+3. Fill in industry tags (e.g. `cafe, restaurant`), style tags (e.g.
+   `minimal, warm`), colour mode, and a short description.
+4. Click **Generate snippet**, then **Copy snippet**.
+5. In your GitHub repo, open `docs/catalogue.json`, find the entry for that
+   template (search for its slug, e.g. `"slug": "carservx"`), and replace
+   its `"tags": ...` value with what you copied.
+6. Commit the change.
+
+The card updates instantly in your browser when you generate the snippet
+(so you can keep tagging several templates in one sitting before going to
+commit them all at once), but that only persists once you've actually
+pasted it into the file and committed — refreshing the page without
+committing will lose anything not yet saved to the file.
 
 ## Notes on limitations
 
@@ -98,9 +106,9 @@ to come back to me for each batch.
   occasionally fail to build automatically (missing env vars, broken
   scripts, etc). When that happens they're flagged "Needs manual
   screenshot" in the catalogue rather than blocking everything else.
-- **Re-runs are smart**: unchanged folders aren't re-screenshotted or
-  re-tagged on every push — only new or modified template folders are
-  processed, to save time and API costs as your library grows past 50.
-- If you ever want to force a full re-tag of everything (e.g. you change
-  the tagging prompt), delete `docs/catalogue.json` and push — the
-  pipeline will treat everything as new.
+- **Re-runs are smart**: unchanged folders aren't re-screenshotted on
+  every push — only new or modified template folders are processed, to
+  save time as your library grows past 50.
+- Tags you've added are preserved automatically even if a template's
+  screenshot gets regenerated later (e.g. if you update the source files).
+
