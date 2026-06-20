@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "icon": "fa-solid fa-angles-right",
+        "listItem": "Startup with AI intelligence Making"
+    },
+    {
+        "id": 2,
+        "icon": "fa-solid fa-angles-right",
+        "listItem": "Power of AI for your startup"
+    },
+    {
+        "id": 3,
+        "icon": "fa-solid fa-angles-right",
+        "listItem": "AI solutions designed for startups"
+    }
+]

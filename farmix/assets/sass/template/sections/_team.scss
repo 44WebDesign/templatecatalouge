@@ -1,0 +1,261 @@
+.team-layout1{
+    .slick-list{
+        .slick-track{
+            padding: 20px 0;
+            .slick-current{
+                .team-style1{
+                   background-color: $white-color;
+                   border-color: #C8C8C8;
+                   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+                }
+            }
+        }
+    }
+}
+.team-layout2{
+    position: relative;
+}
+.team-style1{
+    background-color: $smoke-color;
+    display: flex;
+    padding: 30px 20px 30px 30px;
+    align-items: end;
+    border: 1px solid $smoke-color;
+    justify-content: space-between;
+    .team-content {
+        margin-right: 30px;
+        .team-name{
+            font-size: 28px;
+            margin-bottom: 2px;
+        }
+        .team-degi{
+            margin-bottom: 15px;
+            display: block;
+        }
+        .team-contact{
+            color: $black-color;
+            display: inline-block;
+            text-decoration:2px underline $theme-color;
+            transition: all 0.5s ease;
+            &:hover{
+                color: $secondary-color;
+                text-decoration:2px underline $secondary-color;
+            }
+        }
+        .social-style1 {
+            margin-top: 40px;
+            a{
+                font-size: 20px;
+            }
+        }
+    }
+    .team-img{
+        border: 5px solid $white-color;
+        border-radius: 50%;
+        overflow: hidden;
+        max-width: 150px;
+        max-height: 150px;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+        img{
+            
+        }
+    }
+}
+.team-layout2{
+    .slick-list{
+        .slick-track{
+            padding:0 0 20px;
+        }
+    }
+}
+.team-style2{
+    background-color: $white-color;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    .team-img{
+        position: relative;
+        overflow: hidden;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 89%);
+        
+        img{
+            
+            transform: scale(1);
+            transition: all 0.5s ease;
+        }
+    }
+    .team-content {
+        margin-right: 0;
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        padding: 10px 30px 30px 30px;
+        .team-name{
+            font-size: 28px;
+            margin-bottom: 2px;
+            a{
+                color: $black-color;
+                &:hover{
+                    color: $theme-color;
+                }
+            }
+        }
+        .team-degi{
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .team-contact{
+            color: $black-color;
+            display: block;
+            text-decoration:2px underline $theme-color;
+            transition: all 0.5s ease;
+            &:hover{
+                color: $theme-color;
+            }
+        }
+        .social-style1 {
+            margin-top: 40px;
+            a{
+                font-size: 20px;
+            }
+        }
+    }
+    &:hover{
+        .team-img{
+            img{
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+.team-details{
+    .auther-inner{
+        padding: 40px;
+        align-items: flex-start;
+        position: relative;
+        z-index: 1;
+
+        .auther-img{
+            width: 290px;
+            height: 290px;
+            border-radius: 100%;
+            border: 10px solid $white-color;
+            overflow: hidden;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            margin-right: 35px;
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .auther-content{
+        margin-bottom: 35px;
+        .title{
+            margin-bottom: 0;
+        }
+    }
+    .team-media{
+        .media-style1{
+            border-bottom: 1px solid $border-color;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            &:nth-child(3) {
+                border: none;
+              }
+            .media-body{
+                .media-info{
+                    color: $black-color;
+                    a{
+                        color: $black-color;
+                        &:hover{
+                            color: $theme-color;
+                        }
+                    }
+                }
+                .media-title{
+                    color: $black-color;
+                }
+            }
+        }
+    }
+    .team-style3{
+        background-color: $smoke-color;
+    }
+    .vs-comment-form{
+        margin: 0;
+        border: 1px solid var(--border-color);
+        transform: translate(30px, 30px);
+        max-width: 455px;
+        .form-title{
+            border-bottom: 2px solid $theme-color;
+            display: inline-block;
+            margin-bottom: 25px;
+
+        }
+        .vs-btn{
+            margin-top: 10px;
+            background-color: $theme-color;
+            border-color: $theme-color;
+            &:hover{
+                background-color: $secondary-color;
+                border-color: $secondary-color;
+            }
+        }
+        .comment-respond .form-control{
+            background-color: $smoke-color;
+        }
+    }
+    .team-inner{
+        margin-top: 72px;
+    }
+
+}
+@include md{
+    .team-style1{
+        text-align: center;
+        display: block;
+        .team-img{
+            margin: 20px auto 0;
+        }
+    }
+}
+@include sm{
+    .team-style1{
+        text-align: center;
+        display: block;
+        .team-img{
+            margin: 20px auto 0;
+        }
+    }
+}
+@include xs{
+    .team-style1{
+        text-align: center;
+        display: block;
+        .team-img{
+            margin: 20px auto 0;
+        }
+    }
+    .team-details{
+        .vs-comment-form {
+            transform: none;
+            
+        }
+        .auther-inner {
+            padding: 20px;
+            margin-right: 0;
+            display: block;
+        }
+    } 
+    .team-style2{
+        .team-content{
+            .team-name a {
+                font-size: 24px;
+            }
+            .social-style1 a {
+                font-size: 20px;
+                margin-right: 10px;
+            }
+        }
+    } 
+}

@@ -1,0 +1,131 @@
+.categorie-style1{
+    text-align: center;
+    .categorie-img{
+        background-color: #FFF7CC;
+        border-radius: 50%;
+        padding: 30px;
+        width: 230px;
+        height: 230px;
+        line-height: 170px;
+        margin: 0 auto 25px auto;
+        transition: all 0.5s ease;
+    }
+    .categorie-content{
+        .categorie-title{
+            margin-bottom: 0;
+            a{
+                color: $black-color;
+                &:hover{
+                    color: $secondary-color;
+                }
+            }
+        }
+        .categorie-text{
+            margin-bottom: 0;
+        }
+    }
+    &:hover{
+        .categorie-img{
+            background-color: $theme-color;
+        }
+    }
+}
+.categorie-style2{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0000008e;
+    }
+    .categorie-img{
+        img{
+            width: 100%;
+        }
+    }
+    .categorie-content{
+        position: absolute;
+        left: 30px;
+        bottom: 20px;
+        .categorie-title{
+            margin-bottom: 3px;
+            a{
+                color: $white-color;
+                &:hover{
+                    color: $theme-color;
+                }
+            }
+        }
+        .categorie-text{
+            color: $white-color;
+            margin-bottom: 0;
+        }
+    }
+    .title-area{
+        margin-bottom: 30px;
+    }
+}
+.categorie-layout2{
+    padding-bottom: 90px;
+    .title-left{
+        color: $secondary-color;
+        font-weight: 600;
+        width: 100%;
+    }
+    .title-link{
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+        a{
+            color: $black-color;
+            font-weight: 600;
+            border-bottom: 2px solid $theme-color;
+            transition: all 0.5s ease;
+            &:hover{
+                color: $secondary-color;
+                border-color: $secondary-color;
+            }
+            i{
+                margin-left: 5px;
+                position: relative;
+                top: 2px;
+            }
+        } 
+    }
+}
+
+@include lg{
+    .categorie-style1{
+        .categorie-img{
+            width: 200px;
+            height: 200px;
+            line-height: 130px;
+        }
+    }
+}
+@include md{
+    .categorie-layout2 {
+        padding-bottom: 60px;
+    }
+}
+@include sm{
+    .title-area .sec-title {
+        font-size: 32px;
+    }
+}
+@include xs{
+    
+    .categorie-layout2{
+        .title-area .sec-title {
+            font-size: 28px;
+        }
+        .title-link a{
+            font-size: 14px;
+        }
+    }
+}

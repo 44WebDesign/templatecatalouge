@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "sub_title": "Starter",
+    "title": "Essential Care",
+    "price": {
+      "currency": "$",
+      "price": "29",
+      "under_dot": "99",
+      "price_desc": "/mo"
+    },
+    "list": [
+      { "icon": "fa-light fa-check", "text": "Oil change (1x/month)" },
+      { "icon": "fa-light fa-check", "text": "Tire pressure check" },
+      { "icon": "fa-light fa-check", "text": "Battery health report" },
+      { "icon": "fa-thin fa-xmark", "text": "Brake inspection" },
+      { "icon": "fa-thin fa-xmark", "text": "Engine diagnostics" },
+      { "icon": "fa-thin fa-xmark", "text": "Roadside assistance" }
+    ]
+  },
+  {
+    "id": 2,
+    "sub_title": "Professional",
+    "title": "Advanced Care",
+    "price": {
+      "currency": "$",
+      "price": "149",
+      "under_dot": "99",
+      "price_desc": "/mo"
+    },
+    "list": [
+      { "icon": "fa-light fa-check", "text": "Oil change (2x/month)" },
+      { "icon": "fa-light fa-check", "text": "Full vehicle inspection" },
+      { "icon": "fa-light fa-check", "text": "Brake inspection & service" },
+      { "icon": "fa-light fa-check", "text": "Engine diagnostics" },
+      { "icon": "fa-thin fa-xmark", "text": "Towing service" },
+      { "icon": "fa-thin fa-xmark", "text": "Loaner car availability" }
+    ]
+  },
+  {
+    "id": 3,
+    "sub_title": "Enterprise",
+    "title": "Premium Auto Care",
+    "price": {
+      "currency": "$",
+      "price": "399",
+      "under_dot": "99",
+      "price_desc": "/mo"
+    },
+    "list": [
+      { "icon": "fa-light fa-check", "text": "Unlimited oil changes" },
+      { "icon": "fa-light fa-check", "text": "Brake & engine service included" },
+      { "icon": "fa-light fa-check", "text": "Towing & roadside assistance" },
+      { "icon": "fa-light fa-check", "text": "Loaner car while servicing" },
+      { "icon": "fa-light fa-check", "text": "Priority booking & service" },
+      { "icon": "fa-light fa-check", "text": "Annual car detailing" }
+    ]
+  }
+]

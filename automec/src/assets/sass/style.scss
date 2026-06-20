@@ -1,0 +1,181 @@
+/**
+ * Stylesheet:  style.css
+ * Theme:       Automec - Car Service & Repair HTML5 Template
+ * Version:     1.0
+ * Author:     	ThemeEarth
+ * 
+ */
+/* Table of contents
+=========================
+1.Preloader
+2.Scrollup
+4.Nav Menu CSS
+3.Slider Section
+5.Info Card
+6.Icon Card
+7. About Image Card
+8. About Info Card
+09. Counter Card
+10. Process Step Card
+11. Testimonial Card
+12. Accordion Card
+13. Post Card
+14. Skill Progress Card
+15. Call To Action Card
+16. Title Card
+17. Breadcrumb
+18. Paginations
+19. Project Details Page
+20. sidebar
+21. Comment List
+22. Comment Form
+23. Team member
+24. Portfolio25. About Page
+25. About Page
+26. Contact Page
+27. Service Page
+28. Team Page
+29. Blog Page
+Footer
+
+===========================*/
+/* Theme Default CSS */
+@import "variables";
+@import "mixin";
+@import "partials/theme-default";
+@import "partials/default-spacing";
+@import "unittest";
+@import "keyframes";
+
+// 1.Preloader
+@import "modules/preeloader";
+
+// 2.Scrollup
+@import "partials/scrollup";
+
+// 3.Nav Menu
+@import "partials/header";
+@import "modules/meanmenu";
+@import "partials/menu-sidebar";
+
+// 4.Slider Section
+@import "modules/slider/slider-style-one";
+@import "modules/slider/slider-style-two";
+
+// 5.Info Card
+@import "modules/info-card/info-card";
+@import "modules/info-card/info-card-two";
+@import "modules/info-card/info-card-three";
+// 6.Icon Card
+@import "modules/icon-card/icon-card";
+@import "modules/icon-card/icon-card-two";
+
+// 7. About Image Card
+@import "modules/about-image-card/about-image-card";
+@import "modules/about-image-card/about-image-card-two";
+
+// 8. About Info Card
+@import "modules/about-info-card/about-info-card";
+@import "modules/about-info-card/about-info-card-two";
+@import "modules/about-info-card/about-info-card-three";
+
+
+// 09. Counter Card
+@import "modules/counter/counter-card";
+
+// 10. Process Step Card
+@import "modules/process-step/process-step";
+@import "modules/process-step/process-step-two";
+
+
+// 11. Testimonial Card
+@import "modules/testimonial/testimonial-card";
+@import "modules/testimonial/testimonial-card-two";
+@import "modules/testimonial/testimonial-card-three";
+@import "modules/testimonial/testimonial-slider-controls";
+
+// 12. Accordion Card
+@import "modules/accordion/accordion";
+
+
+// 13. Post Card
+@import "modules/post-card/post-card";
+@import "modules/post-card/post-card-one";
+@import "modules/post-card/post-card-two";
+@import "modules/post-card/post-details";
+
+// 14. Skill Progress Card
+@import "modules/skill-progress";
+
+
+// 15. Call To Action Card
+@import "modules/call-to-action-card";
+
+// 16. Price Card
+@import "modules/price-card/price-card";
+
+// 16. Title Card
+@import "modules/title-section";
+
+// 17. Breadcrumb
+@import "modules/breadcrumb/breadcrumb";
+
+// 18. Paginations
+@import "modules/paginations";
+
+// 19. Project Details Page
+@import "pages/project-details";
+@import "modules/list-item";
+
+// 20. sidebar
+@import "partials/sidebar";
+
+// 21. Comment List
+@import "modules/comment-list";
+
+// 22. Comment Form
+@import "modules/comment-form";
+
+// 23. Team member
+@import "modules/team/team-member";
+@import "modules/team/team-member-two";
+@import "modules/team/team-slider-controls";
+
+// 24. Portfolio
+@import "modules/portfolio/portfolio";
+@import "modules/portfolio/portfolio-two";
+@import "modules/portfolio/portfolio-three";
+
+// Brand Logo Slider
+@import "modules/brand-logo-slider/brand-logo-slider";
+
+// Brand Marquee Slider
+@import "modules/brand-marquee-slider/brand-marquee-slider";
+
+
+// Newsletter
+@import "modules/newsletter/newsletter";
+
+
+// Pages
+@import "pages/pages";
+
+// 25. About Page
+@import "pages/about-page";
+
+// 26. Contact Page
+@import "pages/contact-page";
+
+
+// 27. Service Page
+@import "pages/service-page";
+
+// 28. Team Page
+@import "pages/team-member";
+
+// 29. Blog Page
+@import "pages/blog-page";
+
+// Footer
+@import "partials/footer";
+@import "partials/footer-two";

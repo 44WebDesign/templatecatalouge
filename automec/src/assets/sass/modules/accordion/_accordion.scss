@@ -1,0 +1,81 @@
+.te-accordion-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.accordion-wrapper {
+  .te-accordion-list-item {
+
+    .te-accordion-head {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      padding: 16px 30px;
+      position: relative;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      background-color: $primary-color;
+      border-color: transparent;
+      border-radius: 5px 5px 0 0;
+
+      &:before {
+        content: "\f068";
+        font-family: $font-awesome;
+        color: $primary-color;
+        font-weight: 900;
+        background-color: $gray-100;
+        font-size: 16px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+      }
+      &.collapsed {
+        background-color: transparent;
+        border: 1px solid $gray-200;
+        border-radius: 5px;
+
+        .te-accordion-title {
+          color: $gray-900;
+        }
+        &:before {
+          position: relative;
+          content: "\2b";
+          font-family: $font-awesome;
+          font-weight: 900;
+          background-color: $primary-color;
+          border-radius: 5px;
+          color: $white;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30px;
+          height: 30px;
+          flex-shrink: 0;
+        }
+      }
+
+      .te-accordion-title {
+        font-size: 20px;
+        line-height: initial;
+        font-weight: 700;
+        color: $white;
+        margin-bottom: 0;
+      }
+    }
+    .te-accordion-body {
+      font-size: 18px;
+      line-height: 28px;
+      color: $gray-700;
+      margin: 0 20px;
+      padding-bottom: 0;
+      padding-top: 20px;
+      @include transition;
+    }
+  }
+}

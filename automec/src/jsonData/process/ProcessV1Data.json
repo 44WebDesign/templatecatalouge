@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "icon": "icon-1.png",
+        "title": "Wheel Alignment",
+        "text": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their"
+    },
+    {
+        "id": 2,
+        "icon": "icon-2.png",
+        "title": "Filter Replacement",
+        "text": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their"
+    },
+    {
+        "id": 3,
+        "icon": "icon-3.png",
+        "title": "System Upgrades",
+        "text": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their"
+    }
+]

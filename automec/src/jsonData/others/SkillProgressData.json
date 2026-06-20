@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "title": "Certified Auto Technicians",
+        "end": 70
+    },
+    {
+        "id": 2,
+        "title": "Engine Repair Specialists",
+        "end": 50
+    },
+    {
+        "id": 3,
+        "title": "Tire & Wheel Alignment Experts",
+        "end": 60
+    },
+    {
+        "id": 4,
+        "title": "Vehicle Diagnostic Professionals",
+        "end": 90
+    }
+]

@@ -1,0 +1,36 @@
+.selling-layout1{
+    position: relative;
+    .selling-img{
+        position: relative;
+        text-align: right;
+        .img1{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            background-color: $white-color;
+            border-radius: 50%;
+        }
+    }
+    .list-style1{
+        margin-bottom: 40px;
+        li{
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: $black-color;
+            i{
+                color: $secondary-color;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+@include md{
+    .selling-layout1 .selling-img{
+        margin-top: 60px;
+    }
+}

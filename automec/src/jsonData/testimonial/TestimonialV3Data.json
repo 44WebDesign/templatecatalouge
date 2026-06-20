@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "title": "Highly Recommended!...",
+        "text": "Lorem ipsum dolor sit amet consectetur. Nisl libero arcu the adipiscing the lectus a. Sed sed elit urna natoque ut Lorem man  ipsum dolor sit amet an consectetur. Nisl libero arcu adipiscing lectus a. Sed sed elit urna natoque ut suspendisse lectus a. Sed sed elit urna natoque",
+        "thumb": "t-1.jpg",
+        "name": " Istiak Ahmed",
+        "position": "Developer",
+        "icon": "fa-solid fa-quote-right"
+    },
+    {
+        "id": 2,
+        "title": "Highly Recommended!...",
+        "text": "Lorem ipsum dolor sit amet consectetur. Nisl libero arcu the adipiscing the lectus a. Sed sed elit urna natoque ut Lorem man  ipsum dolor sit amet an consectetur. Nisl libero arcu adipiscing lectus a. Sed sed elit urna natoque ut suspendisse lectus a. Sed sed elit urna natoque",
+        "thumb": "t-2.jpg",
+        "name": "Camila Williamson",
+        "position": "Marketer",
+        "icon": "fa-solid fa-quote-right"
+    },
+    {
+        "id": 3,
+        "title": "Highly Recommended!...",
+        "text": "Lorem ipsum dolor sit amet consectetur. Nisl libero arcu the adipiscing the lectus a. Sed sed elit urna natoque ut Lorem man  ipsum dolor sit amet an consectetur. Nisl libero arcu adipiscing lectus a. Sed sed elit urna natoque ut suspendisse lectus a. Sed sed elit urna natoque",
+        "thumb": "t-3.jpg",
+        "name": "Madeline Gibson",
+        "position": "UI/UX Design",
+        "icon": "fa-solid fa-quote-right"
+    }
+]

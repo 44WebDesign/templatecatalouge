@@ -1,0 +1,15 @@
+.social-style1 {
+    a {
+        color: $title-color;
+        font-size: 22px;
+        margin-right: 20px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            color: $theme-color;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "thumb": "rp-1.jpg",
+        "title": "Engine Diagnostics & Repair",
+        "category": "Engine Service",
+        "icon": "fa-light fa-tools"
+    },
+    {
+        "id": 2,
+        "thumb": "rp-2.jpg",
+        "title": "Brake Inspection & Replacement",
+        "category": "Brake Service",
+        "icon": "fa-light fa-car-crash"
+    },
+    {
+        "id": 3,
+        "thumb": "rp-3.jpg",
+        "title": "Oil Change & Maintenance",
+        "category": "Maintenance",
+        "icon": "fa-light fa-oil-can"
+    }
+]

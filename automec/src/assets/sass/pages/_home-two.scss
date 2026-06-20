@@ -1,0 +1,184 @@
+.counter-up-area {
+  &.style-1 {
+    margin-top: -150px;
+    position: relative;
+    z-index: 9;
+  }
+  .te-counter-card {
+    background-color: $primary-color;
+    padding: 60px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+}
+// Newsletter
+.newsletter-sec {
+  padding-top: 80px;
+  padding-bottom: 150px;
+}
+
+// About Us Area
+.about-us-area {
+  &.style-2 {
+    position: relative;
+    z-index: 2;
+    margin-top: -70px;
+
+    .te-icon-card .icon {
+      width: 71px;
+      height: 65px;
+    }
+
+    .about-us-image-left {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      border-radius: 0 5px 5px 0;
+      z-index: -1;
+
+      @include rmaxwd(1199) {
+        width: 100%;
+        border-radius: 0;
+      }
+      .about-us-image-inner-left {
+        height: 100%;
+        position: relative;
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          top: 0;
+        }
+      }
+    }
+
+    .about-us-image {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      right: 0;
+      top: 0;
+      padding: 70px 0;
+
+      @include rmaxwd(1199) {
+        display: none;
+      }
+
+      .about-us-image-inner {
+        height: 100%;
+        position: relative;
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          top: 0;
+        }
+      }
+    }
+
+    .te-about-info-card {
+      padding-top: 110px;
+      padding-bottom: 140px;
+      padding-right: 40px;
+
+      @include sm {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        padding-right: 0;
+      }
+    }
+
+  }
+}
+// Team Area
+.team-area {
+  &.style-2 {
+    margin-bottom: -160px;
+  }
+}
+
+// Portfolio Area
+.portfolio-slider-area-bg {
+  padding-top: 290px;
+  padding-bottom: 120px;
+
+  @include sm {
+    padding-top: 250px;
+    padding-bottom: 80px;
+  }
+
+  .slick-list {
+    margin: 0 -15px;
+  }
+  .portfolio-slider {
+    .slick-slider-item {
+      margin: 0 15px;
+    }
+  }
+}
+
+// Testimonial Slider
+.testimonial-slider-area {
+  &.style-2 {
+
+    .testimonial-image {
+      margin-right: -220px;
+      @include rmaxwd(991) {
+        margin-right: 0;
+      }
+
+    }
+    .te-section-title {
+      margin-bottom: 60px;
+      margin-left: 220px;
+
+      @include rmaxwd(991) {
+        margin-left: 0;
+      }
+    }
+
+  }
+}
+
+// Appointment Area
+.appointment-area {
+  &.style-2 {
+    position: relative;
+    z-index: 2;
+
+
+    .appointment-image {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      right: 0;
+      top: 0;
+      @include rmaxwd(991) {
+        display: none;
+      }
+
+      .appointment-image-inner {
+        height: 100%;
+        position: relative;
+        border-radius: 5px 5px 0;
+        overflow: hidden;
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          top: 0;
+        }
+      }
+    }
+  }
+}

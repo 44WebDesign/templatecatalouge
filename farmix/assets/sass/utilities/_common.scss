@@ -1,0 +1,59 @@
+.image-scale-hover {
+  overflow: hidden;
+
+  img {
+    transition: all ease 0.4s;
+    transform: scale(1.001);
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.shape-mockup {
+  position: absolute;
+}
+
+.z-index-step1 {
+  position: relative;
+  z-index: 4 !important;
+}
+
+.z-index-common {
+  position: relative;
+  z-index: 3;
+}
+
+.z-index {
+  z-index: 0;
+}
+.z-index-n1 {
+  z-index: -1;
+}
+
+
+.media-body {
+  flex: 1;
+}
+
+.badge {
+  position: absolute;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: inline-block;
+  text-align: center;
+  background-color: $theme-color;
+  color: $black-color;
+  padding: .35em .55em;
+  border-radius: 50%;
+}
+
+@media (min-width: $hd) {
+  .d-hd-none {
+    display: none !important;
+  }
+}

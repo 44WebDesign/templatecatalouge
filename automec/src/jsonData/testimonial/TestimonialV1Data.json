@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "text": "There are many variations of passages of Lorem Ipsum thei available, but the and altetion in some form. There  many variations There  many",
+        "thumb": "t-1.jpg",
+        "name": " Brooklyn Simmons",
+        "position": "UI/UX Design"
+    },
+    {
+        "id": 2,
+        "text": "There are many variations of passages of Lorem Ipsum thei available, but the and altetion in some form. There  many variations There  many",
+        "thumb": "t-2.jpg",
+        "name": "Camila Williamson",
+        "position": "System Integration"
+    },
+    {
+        "id": 3,
+        "text": "There are many variations of passages of Lorem Ipsum thei available, but the and altetion in some form. There  many variations There  many",
+        "thumb": "t-3.jpg",
+        "name": "Madeline Gibson",
+        "position": "Data Analytics"
+    },
+    {
+        "id": 4,
+        "text": "There are many variations of passages of Lorem Ipsum thei available, but the and altetion in some form. There  many variations There  many",
+        "thumb": "t-1.jpg",
+        "name": " Brooklyn Simmons",
+        "position": "UI/UX Design"
+    },
+    {
+        "id": 5,
+        "text": "There are many variations of passages of Lorem Ipsum thei available, but the and altetion in some form. There  many variations There  many",
+        "thumb": "t-2.jpg",
+        "name": "Camila Williamson",
+        "position": "System Integration"
+    },
+    {
+        "id": 6,
+        "text": "There are many variations of passages of Lorem Ipsum thei available, but the and altetion in some form. There  many variations There  many",
+        "thumb": "t-3.jpg",
+        "name": "Madeline Gibson",
+        "position": "Data Analytics"
+    }
+]

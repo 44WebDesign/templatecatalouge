@@ -1,0 +1,37 @@
+.te-team-card {
+  &.style-2 {
+
+    &:hover {
+      .te-content-wrapper {
+        .content {
+          background-color: transparent;
+        }
+      }
+    }
+    .te-content-wrapper {
+      transform: unset;
+      padding: 0;
+
+      .content {
+        clip-path: none;
+        background-color: transparent;
+        text-align: center;
+
+        &:before {
+          display: none;
+        }
+        .social {
+          justify-content: center;
+        }
+      }
+    }
+    .image {
+      width: 310px;
+      height: 310px;
+      border-radius: 500px;
+      border: 20px solid transparent;
+      outline: 1px solid $gray-200;
+      margin: 0 auto;
+    }
+  }
+}

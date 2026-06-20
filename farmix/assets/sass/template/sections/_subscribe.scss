@@ -1,0 +1,81 @@
+.subscribe-style1{
+   background-color: $secondary-color;
+   padding: 45px 50px;
+   .subscribe-inner{
+      display: flex;
+      align-items: self-start;
+      .subscribe-icon{
+         display: inline-block;
+         font-size: 48px;
+         margin: 5px 25px 0 0;
+         color: $theme-color;
+      }
+      .sec-title{
+         text-transform: uppercase;
+         color: $white-color;
+         margin-bottom: 0;
+      }
+      .sec-subtitle{
+         font-size: 18px;
+         color: $white-color;
+      }
+   }
+   .subscribe-img {
+      position: absolute;
+      right: 0;
+      transform: translateY(-60%);
+  }
+  .newsletter-form{
+   margin-left: 50px;
+   .search-btn{
+      border-radius: 50px;
+      background-color: $white-color;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      input{
+         font-weight: 600;
+         font-size: 16px;
+         border: none;
+      }
+      .vs-btn{
+         background-color: $theme-color;
+         &:hover{
+            background-color: $secondary-color;
+         }
+      }
+   }
+}
+}
+
+@include md{
+   .subscribe-style1{
+      padding: 45px 20px;
+      .newsletter-form {
+         margin-left: 0px;
+     }
+     .subscribe-img{
+         display: none;
+      }
+   } 
+   .subscribe-layout1 {
+      transform: translateY(28%);
+   }
+}
+@include sm{
+   .subscribe-inner .sec-title {
+      font-size: 24px;
+   }
+   .subscribe-style1 {
+      padding: 45px 0px;
+      
+  }
+  .newsletter-form .search-btn .form-control {
+    padding: 0 10px 0 10px;
+   }
+   .subscribe-style1 .newsletter-form .search-btn .vs-btn {
+      padding: 14px  12px;
+  }
+}

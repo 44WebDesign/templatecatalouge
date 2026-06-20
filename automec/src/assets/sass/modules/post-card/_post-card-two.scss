@@ -1,0 +1,49 @@
+.te-post-card {
+    &.style-2 {
+      flex-direction: row;
+      position: relative;
+
+      @include rmaxwd(1399) {
+        flex-direction: column;
+        gap: 0;
+      }
+      .image {
+        height: 504px;
+        width: 410px;
+
+        @include rmaxwd(1399) {
+          height: 350px;
+          width: 100%;
+        }
+
+        img {
+          width: 100%;
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+      .content {
+        width: 410px;
+        padding: 40px;
+        border-radius: 5px;
+        background-color: $gray-100;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 220px;
+
+        @include rmaxwd(1399) {
+          width: 100%;
+          position: unset;
+          top: unset;
+          transform: unset;
+          left: unset;
+        }
+
+        .te-theme-btn {
+          margin-top: 35px;
+        }
+      }
+
+    }
+}

@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "icon": "fa-regular fa-check",
+        "listText": "Seamless Solutions a Digital"
+    },
+    {
+        "id": 2,
+        "icon": "fa-regular fa-check",
+        "listText": "Experience the difference"
+    },
+    {
+        "id": 3,
+        "icon": "fa-regular fa-check",
+        "listText": "Opening doors to your future"
+    },
+    {
+        "id": 4,
+        "icon": "fa-regular fa-check",
+        "listText": "The Art of Tech, Perfected"
+    }
+]

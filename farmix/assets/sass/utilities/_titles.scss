@@ -1,0 +1,15 @@
+.title-img{
+  margin-bottom: 10px;
+}
+
+.title-area {
+  margin-bottom: 40px;
+  .sec-title{
+    margin-bottom: 0;
+  }
+} 
+@include sm{
+  .title-arraw {
+    display: none;
+}
+}

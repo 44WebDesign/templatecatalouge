@@ -1,0 +1,337 @@
+.slider-area {
+  overflow: hidden;
+  position: relative;
+
+  
+  .te-slider-wrapper {
+
+    // Active Slider Animate
+    .slick-active .te-slider-short-title,
+    .slick-active .te-slider-title,
+    .slick-active .te-slider-short-desc,
+    .slick-active .te-slider-btn-wrapper {
+      -webkit-animation-name: MovefadeUp;
+      animation-name: MovefadeUp;
+      -webkit-animation-fill-mode: both;
+    }
+
+
+    .slick-active .te-slider-short-title {
+      -webkit-animation-delay: 0.3s;
+      animation-delay: 0.3s;
+      -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s;
+    }
+    .slick-active .te-slider-title {
+      -webkit-animation-delay: 0.5s;
+      animation-delay: 0.5s;
+      -webkit-animation-duration: 0.5s;
+      animation-duration: 0.5s;
+    }
+
+    .slick-active .te-slider-short-desc {
+      -webkit-animation-delay: 0.7s;
+      animation-delay: 0.7s;
+      -webkit-animation-duration: 0.7s;
+      animation-duration: 0.7s;
+    }
+
+    .slick-active .te-slider-btn-wrapper {
+      -webkit-animation-delay: 0.9s;
+      animation-delay: 0.9s;
+      -webkit-animation-duration: 0.9s;
+      animation-duration: 0.9s;
+    }
+
+    // Slick Dots
+    .slick-dots {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      right: 46px;
+      transform: translateY(-50%);
+      z-index: 2;
+      flex-direction: column;
+
+      @include sm {
+        display: none !important;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 30px;
+        bottom: 70px;
+        top: unset;
+        left: unset;
+        right: unset;
+        transform: none;
+      }
+
+      li {
+        display: inline-block;
+        line-height: 0;
+        outline: 1px solid transparent;
+        border: 4px solid transparent;
+        border-radius: 50px;
+        @include transition;
+
+        button {
+          font-size: 2px;
+          text-indent: -9999px;
+          padding: 0;
+          width: 10px;
+          height: 10px;
+          background-color: $primary-color;
+          border-radius: 50px;
+          position: relative;
+          @include transition;
+
+          &:hover {
+            background-color: $primary-color;
+            @include transition;
+          }
+        }
+        &.slick-active {
+          @include transition;
+          outline: 1px solid $primary-color;
+
+          button {
+            @include transition;
+          }
+        }
+      }
+    }
+  }
+
+  .te-single-slider {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+
+    .te-slider-feature-image {
+      position: absolute;
+      right: 500px;
+      bottom: 0;
+
+      @include lg {
+        right: 100px;
+      }
+      @include rmaxwd(991) {
+        display: none;
+      }
+
+    }
+      .te-slider-overlay {
+        left: 0;
+        background: linear-gradient(90deg, #171717 0%, rgba(23, 23, 23, 0.35) 74.82%);
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .te-slider-container {
+        display: flex;
+        padding: 120px 0;
+        gap: 30px;
+
+        @include sm {
+          flex-direction: column-reverse;
+          padding: 80px 0;
+          //text-align: center;
+        }
+        @include md {
+          padding: 100px 0;
+          //align-items: center;
+        }
+        .te-slider-column {
+          width: 50%;
+          flex-grow: 1;
+
+          @include sm {
+            width: 100%;
+          }
+        }
+      }
+      .te-slider-content-wrapper {
+        position: relative;
+        z-index: 99;
+
+        .te-slider-content {
+          .te-slider-short-title {
+            font-family: $body-font;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 26px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: $primary-color;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 15px;
+          }
+          .te-slider-title {
+          color: $white;
+          font-family: $body-font;
+          font-size: 75px;
+          font-weight: 900;
+          line-height: 70px;
+          margin-bottom: 30px;
+
+            @media only screen and (min-width: 992px) and (max-width: 1400px){
+              font-size: 60px;
+              line-height: 64px;
+            }
+
+            @include lg {
+              font-size: 48px;
+              line-height: 56px;
+            }
+            @include md {
+              font-size: 42px;
+              line-height: 52px;
+            }
+            @include sm {
+              font-size: 38px;
+              line-height: 44px;
+              margin-bottom: 20px;
+            }
+          }
+          .te-slider-short-desc {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 28px;
+            color: $white;
+
+            @include lg {
+              font-size: 18px;
+              line-height: 32px;
+            }
+            @include md {
+              font-size: 18px;
+              line-height: 32px;
+            }
+            @include sm {
+              font-size: 18px;
+              line-height: 32px;
+            }
+          }
+          .te-slider-btn-wrapper {
+            padding-top: 52px;
+            display: flex;
+            align-items: center;
+            gap: 27px;
+            flex-wrap: wrap-reverse;
+            @include sm {
+              padding-top: 30px;
+            }
+
+            .te-theme-btn {
+              flex-shrink: 0;
+              letter-spacing: 1px;
+            }
+            .te-call-btn {
+              display: flex;
+              align-items: center;
+              gap: 20px;
+
+              .te-icon {
+                width: 55px;
+                height: 55px;
+                border-radius: 50px;
+                flex-shrink: 0;
+                border: 1px solid $primary-color;
+                font-size: 20px;
+                font-weight: 900;
+                color: $white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: ripple 4s infinite;
+                box-shadow: 0 0 0 0 $primary-color;
+              }
+              .te-content {
+                display: flex;
+                flex-direction: column;
+
+                .te-title {
+                  font-size: 18px;
+                  font-weight: 400;
+                  line-height: 24px;
+                  color: #335371;
+                }
+                .te-text {
+                  font-size: 16px;
+                  font-weight: 700;
+                  line-height: 26px;
+                  color: $white;
+                }
+              }
+            }
+          }
+        }
+      }
+    .te-slider-image {
+      position: relative;
+      z-index: 2;
+      margin-top: inherit;
+      animation: MoveLeftRight 2s linear infinite alternate;
+      text-align: right;
+
+      .slider-feature {
+        display: inline-flex;
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+        background-color: $primary-color;
+        border-radius: 5px;
+
+        @include sm {
+          width: 100%;
+        }
+
+        .single-slider-feature {
+          display: flex;
+          justify-content: space-between;
+          gap: 16px;
+
+          .slider-feature-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            .title {
+              color: $white;
+              margin-bottom: 0;
+              font-size: 50px;
+              font-weight: 900;
+              line-height: 55px;
+            }
+            .sub-title {
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 28px;
+              color: $white;
+              margin-bottom: 0;
+            }
+          }
+          .slider-feature-img {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background-color: rgba($color: $black, $alpha: 0.1);
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

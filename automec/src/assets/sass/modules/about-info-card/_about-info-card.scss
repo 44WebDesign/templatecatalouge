@@ -1,0 +1,114 @@
+.te-about-image-card {
+  .te-main-img-wrapper {
+
+    .te-main-img-inner {
+      position: relative;
+      display: inline-block;
+      z-index: 2;
+
+      .about-img-one {
+        position: relative;
+        width: 490px;
+        height: 590px;
+        border-right: 7px solid $primary-color;
+
+        @include rmaxwd(576) {
+          width: 340px;
+        }
+        > img {
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding-right: 18px;
+        }
+
+        .te-img-card-shape {
+          position: absolute;
+          top: -30px;
+          right: -30px;
+          z-index: -1;
+
+
+          @include rmaxwd (575) {
+            right: 0;
+          }
+        }
+      }
+      .about-img-two {
+        width: 306px;
+        height: 320px;
+        position: absolute;
+        background-color: $white;
+        bottom: -139px;
+        right: -130px;
+
+        @include sm {
+          right: 0;
+        }
+
+        > img {
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          padding: 9px;
+        }
+      }
+    }
+  }
+  .te-company-foundation-wrapper {
+    padding: 0 40px;
+    position: relative;
+    margin-top: -20px;
+
+    .te-company-foundation {
+      display: inline-flex;
+      gap: 10px;
+      background-color: $primary-color;
+      padding: 20px 42px;
+      border-radius: 5px;
+      flex-direction: column;
+
+      .title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: initial;
+        color: $white;
+        margin-bottom: 0;
+        text-align: left;
+      }
+    }
+  }
+  .te-company-experience {
+    display: flex;
+    align-items: center;
+
+    .te-counter-wrapper {
+      color: $white;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .suffix {
+        line-height: 0;
+      }
+
+    }
+    .counter {
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 0;
+      font-family: $heading-font;
+      color: $white;
+      margin-bottom: 0;
+    }
+
+  }
+}

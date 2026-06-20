@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "icon": "badge.png",
+        "title": "Team member",
+        "end": 67
+    },
+    {
+        "id": 2,
+        "icon": "user.png",
+        "title": "Winning award",
+        "end": 36
+    },
+    {
+        "id": 3,
+        "icon": "thumb-up.png",
+        "title": "Complete project",
+        "end": 500
+    },
+    {
+        "id": 4,
+        "icon": "users.png",
+        "title": "Client Review",
+        "end": 400
+    }
+]

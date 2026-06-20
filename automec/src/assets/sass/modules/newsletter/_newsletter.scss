@@ -1,0 +1,73 @@
+.subscribe-area {
+  margin-top: 150px;
+
+  @include md {
+    margin-top: 100px;
+  }
+  @include sm {
+    margin-top: 80px;
+  }
+
+  @include rmaxwd(991) {
+    padding: 80px 0;
+  }
+  .subscribe-image {
+    margin-top: -155px;
+  }
+}
+.newsletter-text {
+  display: flex;
+  gap: 20px 74px;
+  align-items: center;
+
+  @include rmaxwd(991) {
+    flex-wrap: wrap;
+  }
+
+  .newsletter-text {
+    .title {
+      font-size: 50px;
+      line-height: 55px;
+    }
+  }
+
+}
+
+.te-subscribe-form-widget {
+  &.style-3 {
+    .mc4wp-form-fields {
+      gap: 20px;
+
+      .submit-btn {
+        border-radius: 5px;
+      }
+    }
+    .single-field {
+      input {
+        background-color: $gray-200;
+        color: $gray-800;
+        border-color: $gray-200;
+      }
+      *::-webkit-input-placeholder {
+        color: $gray-800;
+      }
+      *:-moz-placeholder {
+        color: $gray-800;
+        opacity: 1;
+      }
+      *::-moz-placeholder {
+        color: $gray-800;
+        opacity: 1;
+      }
+      *:-ms-input-placeholder {
+        color: $gray-800;
+      }
+      *::-ms-input-placeholder {
+        color: $gray-800;
+      }
+      *::placeholder {
+        color: $gray-800;
+      }
+    }
+  }
+}

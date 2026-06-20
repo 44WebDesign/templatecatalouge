@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "rating": "fa-solid fa-star"
+    },
+    {
+        "id": 2,
+        "rating": "fa-solid fa-star"
+    },
+    {
+        "id": 3,
+        "rating": "fa-solid fa-star"
+    },
+    {
+        "id": 4,
+        "rating": "fa-solid fa-star"
+    },
+    {
+        "id": 5,
+        "rating": "fa-solid fa-star"
+    }
+]

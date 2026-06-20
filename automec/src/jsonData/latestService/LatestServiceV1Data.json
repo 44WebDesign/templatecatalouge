@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "thumb": "service-1.jpg",
+        "icon": "icon-1.png",
+        "title": "Engine Diagnostics",
+        "text": "Purus velit aenean qui habitant eros bibendum Purus velit aenean qitant eros bibendum Purus velit aenean quis habitant eros"
+    },
+    {
+        "id": 2,
+        "thumb": "service-2.jpg",
+        "icon": "icon-2.png",
+        "title": "Suspension Tuning",
+        "text": "Purus velit aenean qui habitant eros bibendum Purus velit aenean qitant eros bibendum Purus velit aenean quis habitant eros"
+    },
+    {
+        "id": 3,
+        "thumb": "service-3.jpg",
+        "icon": "icon-3.png",
+        "title": "Transmission Service",
+        "text": "Purus velit aenean qui habitant eros bibendum Purus velit aenean qitant eros bibendum Purus velit aenean quis habitant eros"
+    },
+    {
+        "id": 4,
+        "thumb": "service-4.jpg",
+        "icon": "icon-4.png",
+        "title": "AutoFix Solutions",
+        "text": "Purus velit aenean qui habitant eros bibendum Purus velit aenean qitant eros bibendum Purus velit aenean quis habitant eros"
+    },
+    {
+        "id": 5,
+        "thumb": "service-5.jpg",
+        "icon": "icon-5.png",
+        "title": "Master Mechanics",
+        "text": "Purus velit aenean qui habitant eros bibendum Purus velit aenean qitant eros bibendum Purus velit aenean quis habitant eros"
+    },
+    {
+        "id": 6,
+        "thumb": "service-6.jpg",
+        "icon": "icon-6.png",
+        "title": "Swift Auto Care",
+        "text": "Purus velit aenean qui habitant eros bibendum Purus velit aenean qitant eros bibendum Purus velit aenean quis habitant eros"
+    }
+]

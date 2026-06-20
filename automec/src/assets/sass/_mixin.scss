@@ -1,0 +1,61 @@
+  // gradient Color
+  @mixin gradient-color () {
+    background: linear-gradient(180deg, #E0F0FE 0%, #F8FCFF 100%);
+  }  
+  //color opacity
+  @mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity = $opacity-ie); //IE8
+  }
+  
+
+// Small devices
+@mixin xs {
+  @media only screen and (min-width: 0px) and (max-width:350px){
+      @content;
+  }
+}
+@mixin sm {
+  @media only screen and (min-width: 0px) and (max-width: 767px){
+      @content;
+  }
+}
+// Medium devices
+@mixin md {
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media only screen and (min-width: 992px) and (max-width: 1199px){
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media only screen and (min-width: 1200px) and (max-width: 1399px) {
+      @content;
+  }
+}
+
+// Custom Max Width
+@mixin rmaxwd($screen) {
+  @media (max-width: $screen+'px') {
+    @content;
+  }
+}
+// Custom devices
+@mixin rwd($screen) {
+  @media (min-width: $screen+'px') {
+      @content;
+  }
+}
+
+//transition
+@mixin transition{
+  transition: all 0.5s ease-out;
+}

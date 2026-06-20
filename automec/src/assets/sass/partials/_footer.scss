@@ -1,0 +1,630 @@
+.footer {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+
+  //footer Background
+  .te-footer-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .footer-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .footer-nav-widget {
+    padding: 0 90px;
+
+    @include rmaxwd (991) {
+      padding: 0 12px;
+    }
+    @include lg {
+      padding: 0 20px;
+    }
+    @include xl {
+      padding: 0 30px;
+    }
+  }
+}
+.te-footer-widget-title {
+  font-family: $heading-font;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 37.8px;
+  letter-spacing: -0.54px;
+  color: $gray-900;
+  position: relative;
+  margin-bottom: 30px;
+}
+.te-footer-widget {
+  margin-bottom: 30px;
+
+  @include rmaxwd(991) {
+    margin-bottom: 40px;
+  }
+  ul {
+    padding-left: 0;
+  }
+  .te-subscribe-form-widget{
+    .single-field {
+      input {
+        border-radius: 0;
+      }
+    }
+  }
+  // Footer Latest Post
+  &.widget-latest-posts-footer {
+    margin-top: -5px;
+  }
+  // Footer Instagram
+  &.zoom-instagram-widget {
+    @include rmaxwd(767) {
+      margin-bottom: 0;
+      margin-top: -10px;
+    }
+  }
+  // Footer About Info
+  &.widget_contact_info_widget {
+    @include rmaxwd(767) {
+      margin-bottom: 18px;
+    }
+  }
+
+  .widget-instagram-feed {
+    @media only screen and (min-width: 992px) and (max-width: 1399px) {
+      width: 170px;
+    }
+  }
+  // Footer Info Widget
+  .te-footer-widget-info {
+
+    @include rmaxwd(1199) {
+      padding-right: 0;
+    }
+    p {
+      color: $gray-800;
+      margin-bottom: 30px;
+    }
+    .te-footer-logo {
+      margin-bottom: 30px;
+      display: inline-block;
+    }
+    .info-form-and-social-icon {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      .te-social-profile {
+        margin-top: 0;
+      }
+    }
+
+    .extra-info-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      .single-extra-info {
+        .title {
+          font-size: 20px;
+          line-height: initial;
+        }
+      }
+    }
+
+    @include sm {
+      .info-form-and-social-icon {
+        flex-direction: column;
+        align-items: start;
+        gap: 30px;
+      }
+    }
+
+    .single-info-wrapper {
+      display: flex;
+      gap: 20px;
+      flex-direction: column;
+
+      .single-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .title {
+          font-family: $heading-font;
+          color: $white;
+          font-size: 20px;
+          font-weight: 700;
+          line-height: initial;
+        }
+        .text {
+          font-size: 18px;
+          font-weight: 400;
+          color: $white;
+          line-height: initial;
+        }
+      }
+    }
+
+  }
+
+  // Footer Menu Widget
+  &.te_widget_nav_menu {
+    ul {
+      margin-top: -5px;
+      padding-left: 0;
+      margin-bottom: 0;
+
+      &.no-icon {
+        li {
+          a {
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    li {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      padding-bottom: 8px;
+
+      &:last-child {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      a {
+        color: $gray-800;
+        text-transform: capitalize;
+        @include transition;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &::before {
+          content: "\f061";
+          font-family: $font-awesome;
+          font-size: 14px;
+          color: $primary-color;
+        }
+        &:hover {
+          @include transition;
+          color: $primary-color !important;
+        }
+      }
+    }
+  }
+
+  // Footer Contact Widget
+  .te-footer-widget-contact {
+    p {
+      color: $gray-800;
+    }
+  }
+  .footer-contact ul {
+    list-style: none;
+
+    li {
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      line-height: 24px;
+      gap: 20px;
+
+      &:first-child {
+        align-items: flex-start;
+        .contact-icon {
+          margin-top: 5px;
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      .contact-icon {
+        color: $primary-color;
+        border-radius: 50px;
+        float: left;
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .contact-text {
+        color: $gray-800;
+        overflow: hidden;
+
+        a {
+          &:hover {
+            span {
+              color: $primary-color;
+              @include transition;
+            }
+          }
+        }
+        span,
+        p,
+        a {
+          color: $gray-800;
+          display: inline-block;
+          width: 100%;
+          margin-bottom: 0;
+          @include transition;
+        }
+      }
+    }
+  }
+  // Footer Latest News
+  .te_widget_latest_post {
+
+    ul {
+      li {
+        margin-bottom: 10px;
+        border-bottom: 0;
+
+        .te-latest-post-thumb {
+          width: 80px;
+          height: 80px;
+          overflow: hidden;
+        }
+        .te-latest-post-desc {
+          .te-latest-post-title {
+            margin-bottom: 0;
+            font-size: 20px;
+            line-height: 28px;
+            color: $gray-800;
+            font-weight: 500;
+            letter-spacing: -0.8px;
+
+            a {
+              font-size: 18px;
+              line-height: 29px;
+              color: $gray-800;
+              font-weight: 500;
+              position: relative;
+              letter-spacing: -0.8px;
+              text-transform: capitalize;
+              @include transition;
+
+              &:hover {
+                color: $primary-color;
+                @include transition;
+              }
+            }
+          }
+          .te-latest-post-meta {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            gap: 8px;
+            color: $gray-800;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Footer Bottom Section
+.te-footer-bottom-menu {
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 13px 54px;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    padding-left: 0;
+    flex-wrap: wrap;
+
+    @include rmaxwd(991) {
+      justify-content: flex-start;
+      gap: 10px 20px;
+    }
+
+    li {
+      a {
+        font-size: 18px;
+        text-transform: capitalize;
+        color: $gray-800;
+        @include transition;
+
+        &:hover {
+          @include transition;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.footer-bottom-area {
+  padding: 16px 0;
+
+  @include rmaxwd(991) {
+    padding: 30px 0;
+  }
+
+  .te-footer-bottom-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    gap:10px 40px;
+  }
+  .te-copyright-text {
+    p {
+      color: $gray-800;
+      margin-bottom: 0;
+
+      a {
+        color: $gray-800;
+        font-weight: 900;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  .credit-text {
+    p {
+      color: $gray-800;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    a {
+      color: $primary-color;
+    }
+  }
+}
+
+// Footer Subscribe
+//.subscribe-area {
+//
+//  .subscribe-image {
+//    margin-top: -100px;
+//  }
+//  .te-content-wrapper {
+//    padding: 60px 0;
+//
+//    .short-title {
+//      font-size: 21px;
+//      font-weight: 900;
+//      color: $gray-800;
+//      margin-bottom: 0;
+//    }
+//    .te-subscribe-title {
+//      color: $white;
+//      font-size: 55px;
+//      font-weight: 900;
+//      line-height: 55px;
+//      text-transform: capitalize;
+//      margin-bottom: 20px;
+//
+//      @include rmaxwd(375) {
+//        font-size: 34px !important;
+//      }
+//      @include md {
+//        font-size: 40px;
+//        line-height: 42px;
+//      }
+//      @include sm {
+//        font-size: 36px;
+//        line-height: 42px;
+//      }
+//    }
+//    .text {
+//      font-size: 18px;
+//      color: $white;
+//      margin-bottom: 0;
+//      padding-right: 100px;
+//
+//      @include sm {
+//        padding-right: 0;
+//      }
+//    }
+//  }
+//  .te-subscribe-form-wrapper {
+//    margin-top: 40px;
+//  }
+//}
+
+
+.te-footer-widget {
+  .te-subscribe-form-wrapper {
+    color: $gray-800;
+  }
+}
+.te-subscribe-form-widget {
+  position: relative;
+
+  &.style-2 {
+    .mc4wp-form-fields {
+      gap: 11px;
+
+      @include rmaxwd(575) {
+        flex-direction: column;
+      }
+      .submit-btn {
+        border-radius: 5px;
+        padding: 10px 29px;
+        justify-content: center;
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+  .mc4wp-form-fields {
+    display: flex;
+    background-color: transparent;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+
+  .single-field {
+    flex-grow: 1;
+
+    input {
+      color: $white;
+      height: 60px;
+      padding: 0 30px;
+      font-size: 18px;
+      width: 100%;
+      border-radius: 5px;
+      background-color: transparent;
+      border: 1px solid $white;
+    }
+    *::-webkit-input-placeholder {
+      color: $white;
+    }
+    *:-moz-placeholder {
+      color: $white;
+      opacity: 1;
+    }
+    *::-moz-placeholder {
+      color: $white;
+      opacity: 1;
+    }
+    *:-ms-input-placeholder {
+      color: $white;
+    }
+    *::-ms-input-placeholder {
+      color: $white;
+    }
+    *::placeholder {
+      color: $white;
+    }
+  }
+  .submit-btn {
+    background-color: $primary-color;
+    color: $black;
+    cursor: pointer;
+    padding: 0 19px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-transform: capitalize;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+
+    &:hover {
+      background-color: $gray-900;
+      color: $white;
+    }
+  }
+  // Form Submit Message
+  .mc4wp-response {
+    position: relative;
+    top: 15px;
+    .mc4wp-alert {
+      &.mc4wp-error,
+      &.mc4wp-success,
+      &.mc4wp-notice
+      {
+        p {
+          color: #fff;
+          position: relative;
+        }
+      }
+    }
+  }
+}
+// Social Widget
+.te-social-profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .social-profile-title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: initial;
+    letter-spacing: -0.96px;
+    color: $white;
+  }
+
+  .te-social-profile {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    a {
+      color: $white;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      width: 35px;
+      height: 35px;
+      border: 1px solid $gray-700;
+      @include transition;
+
+      &:hover {
+
+        background-color: $primary-color;
+        @include transition;
+        color: $white;
+        border-color: $primary-color;
+      }
+    }
+  }
+}
+
+
+.footer {
+  &.style-1 {
+
+    .te-footer-sec {
+      border-bottom: 1px solid rgba(103, 104, 122, 0.6);
+      padding-top: 80px;
+      padding-bottom: 70px;
+    }
+
+    .te-footer-widget-title {
+      color: $white;
+    }
+    .footer-bottom-area .te-copyright-text p,
+    .te-footer-widget.te_widget_nav_menu li a,
+    .te-footer-widget .te_widget_latest_post ul li .te-latest-post-desc .te-latest-post-title a,
+    .te-footer-widget .te_widget_latest_post ul li .te-latest-post-desc .te-latest-post-title,
+    .te-footer-widget .te_widget_latest_post ul li .te-latest-post-desc .te-latest-post-meta,
+    .te-footer-widget .te-subscribe-form-wrapper,
+    .te-footer-bottom-menu ul li a,
+    .footer-bottom-area .te-copyright-text p a,
+    .te-footer-widget p {
+      color: $white;
+    }
+    .te-subscribe-form-widget {
+      .mc4wp-form-fields {
+        background-color: $gray-900;
+      }
+      .single-field input {
+        border-color: rgba(103, 104, 122, 0.6);
+      }
+    }
+  }
+}

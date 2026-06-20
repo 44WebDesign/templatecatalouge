@@ -1,0 +1,94 @@
+// Brand Marquee Area
+.te-marquee-area {
+  overflow: hidden;
+
+  // display: flex;
+  // flex-direction: column;
+  // overflow: hidden;
+  // gap: 66px;
+  // background-color: $primary-color;
+  // @include rmaxwd(767) {
+  //   gap: 20px;
+  // }
+
+
+  .te-marquee-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+
+    &.first-te-marquee{
+      animation: Scroll 32s linear infinite;
+
+      .single-te-marquee {
+        &:nth-child(even) {
+          .te-marquee-title {
+            color: $black;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 1px;
+          }
+        }
+      }
+    }
+    &.second-te-marquee{
+      animation: Scroll 32s linear infinite;
+      animation-direction: reverse;
+
+      .single-te-marquee {
+        .te-marquee-title {
+          span {
+            color: $black;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 1px;
+          }
+        }
+      }
+    }
+  }
+  .single-te-marquee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+
+    &:last-child {
+      .te-marquee-star {
+        display: none;
+      }
+    }
+    .te-marquee-title {
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 80px;
+      white-space: nowrap;
+      font-family: $heading-font;
+      color: $black;
+
+      // @include sm {
+      //   font-size: 62px;
+      //   line-height: 62px;
+      // }
+      // @include md {
+      //   font-size: 80px;
+      //   line-height: 80px;
+      // }
+      // @include lg {
+      //   font-size: 95px;
+      //   line-height: 75px;
+      // }
+      // @include xl {
+      //   font-size: 100px;
+      //   line-height: 80px;
+      // }
+    }
+    .te-marquee-icon {
+      font-size: 49px;
+      font-weight: 700;
+      color: $black;
+      white-space: nowrap;
+      line-height: 0;
+      width: 64px;
+    }
+  }
+}

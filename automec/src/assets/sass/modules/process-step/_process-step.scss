@@ -1,0 +1,92 @@
+.te-process-step {
+    padding: 80px 40px 40px 40px;
+    background-color: $gray-100;
+    border-radius: 5px;
+    position: relative;
+    top: 0;
+    @include transition;
+
+    @include rmaxwd(991) {
+        margin-bottom: 50px;
+    }
+    &:hover {
+        top: -5px;
+
+        .icon {
+            img {
+                transform: rotateY(360deg);
+                @include transition;
+            }
+        }
+    }
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        background-color: $primary-color;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .te-content-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .te-title-wrapper {
+        display: flex;
+        gap: 20px;
+        padding-bottom: 20px;
+        border-bottom: none;
+        transition: all 0.6s ease;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+            font-size: 26px;
+            line-height: 32px;
+            font-weight: 900;
+            margin: 0;
+            color: $black;
+            transition: all 0.6s ease;
+        }
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        align-items: center;
+
+        .desc {
+            transition: all 0.6s ease;
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 400;
+            margin: 0;
+            color: $gray-800;
+        }
+        .te-read-more {
+            margin-top: -10px;
+
+            .te-read-more-btn {
+                font-family: $heading-font;
+                font-size: 16px;
+                font-weight: 700;
+                line-height: 26px;
+                letter-spacing: 1px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: $black;
+            }
+        }
+    }
+
+}

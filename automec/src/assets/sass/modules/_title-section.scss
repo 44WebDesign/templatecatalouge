@@ -1,0 +1,97 @@
+.te-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 60px;
+
+  @include sm {
+    flex-direction: column;
+    gap: 50px;
+    align-items: unset;
+    margin-bottom: 40px;
+  }
+  @include md {
+    margin-bottom: 50px;
+  }
+
+  &.left-align-title {
+    .te-section-content {
+      margin-top: -15px;
+    }
+  }
+  .te-section-content {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+    margin-bottom: -16px;
+    margin-top: -10px;
+  }
+  .short-title {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 28px;
+    color: $primary-color;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    text-transform: uppercase;
+    
+    &::before,
+    &::after {
+      content: "";
+      width: 40px;
+      height: 2px;
+      border-bottom: 2px solid $primary-color;
+      flex: 1 1;
+    }
+
+    &.only-divider {
+      gap: 10px;
+      &::before {
+        display: none;
+      }
+    }
+  }
+  .title {
+    font-size: 50px;
+    line-height: 55px;
+    font-weight: 900;
+    font-family: $heading-font;
+    color: $black;
+    margin-bottom: 0;
+
+    @include lg {
+      font-size: 48px;
+      line-height: 62px;
+    }
+    @include lg {
+      font-size: 47px;
+    }
+    @include md {
+      font-size: 38px;
+      line-height: 48px;
+    }
+    @include sm {
+      font-size: 32px;
+      line-height: 42px;
+    }
+    @media only screen and (min-width: 0px) and (max-width: 439px){
+      br {
+        display: none;
+      }
+    }
+    span {
+      color: $primary-color;
+    }
+  }
+  .te-section-desc {
+    font-size: 18px;
+    font-weight: 400;
+    font-family: $body-font;
+    color: $black;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,20 @@
+.te-portfolio-card {
+  &.style-2 {
+    .te-content-wrapper {
+      .content {
+        background-color: rgba(0, 0, 0, 0.70);
+        padding: 20px;
+
+        .btn-wrapper {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+
+          a {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}

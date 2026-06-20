@@ -1,0 +1,69 @@
+.breadcumb-menu {
+  max-width: 100%;
+  padding: 0;
+  margin: 20px 0 0 0;
+  list-style-type: none;
+  position: relative;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    list-style: none;
+    position: relative;
+
+    &:after {
+      content: '-';
+      position: relative;
+      margin-left: 14px;
+      margin-right: 9px;
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  li,
+  a,
+  span {
+    word-break: break-word;
+    white-space: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: $white-color;
+    font-family: $body-font;
+    text-transform: uppercase;
+  }
+
+  .fa-home-lg {
+    margin-right: 10px;
+  }
+
+  a:hover {
+    color: $theme-color;
+  }
+}
+
+.breadcumb-title {
+  color: $white-color;
+  margin: -0.25em 0 -0.2em 0;
+  font-size: 75px;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.breadcumb-wrapper {
+  background-color: $secondary-color;
+  background-size: cover;
+  padding-top: 158px;
+  padding-bottom: 120px;
+}
+
+@include sm{
+  .breadcumb-title {
+    font-size: 50px;
+  }
+}

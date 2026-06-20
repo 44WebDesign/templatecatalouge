@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "thumb": "p1.jpg",
+        "title": "Wheel Repair",
+        "category": "cleaning"
+    },
+    {
+        "id": 2,
+        "thumb": "p2.jpg",
+        "title": "Steering Repair",
+        "category": "repair"
+    },
+    {
+        "id": 3,
+        "thumb": "p3.jpg",
+        "title": "Carpet Wash",
+        "category": "maintain"
+    },
+    {
+        "id": 4,
+        "thumb": "p4.jpg",
+        "title": "Interiors VAC",
+        "category": "break"
+    },
+    {
+        "id": 5,
+        "thumb": "p5.jpg",
+        "title": "Glass wash",
+        "category": "maintain"
+    },
+    {
+        "id": 6,
+        "thumb": "p6.jpg",
+        "title": "Fuel Change",
+        "category": "fuel"
+    }
+]

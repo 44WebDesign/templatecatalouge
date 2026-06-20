@@ -1,0 +1,73 @@
+.contact-layout1{
+    .vs-comment-form{
+        background-color: $white-color;
+        border: 1px solid $border-color;
+        margin-bottom: 0;
+        .comment-respond{
+            background-color: $white-color;
+            .form-control{
+                padding:34px;
+            }
+        }
+    }
+    .vs-btn{
+        background-color: $theme-color;
+        &:hover{
+            background-color: $secondary-color;
+        }
+    }
+    .auther-inner{
+        align-items: self-start;
+        background-color: $secondary-color;
+        padding: 33px 30px;
+        margin-right: 0;
+        .auther-img{
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid $theme-color;
+        }
+        .name{
+            color: $white-color;
+        }
+        .designation{
+            font-weight: 400;
+            color: $white-color;
+            display: block;
+        }
+    }
+    .contact-left{
+        .contact-title{
+            font-size: 22px;
+            border-bottom: 2px solid $theme-color;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        
+        .team-media{
+            padding:35px 30px;
+            border: 1px solid var(--border-color);
+            border-top: none;
+            .media-style1{
+                padding: 25px 0px 20px;
+                border-bottom: 1px solid $border-color;
+                &:last-child{
+                    border: none;
+                    padding-bottom: 0;
+                }
+                .media-title{
+                    color: $black-color;
+                }
+                .media-info{
+                    color: $black-color;
+                    a{
+                        color: $black-color;
+                    }
+                }
+            }
+        }
+    }
+    .map{
+        margin-top: 100px;
+        -webkit-filter: grayscale(100%);
+    }
+}

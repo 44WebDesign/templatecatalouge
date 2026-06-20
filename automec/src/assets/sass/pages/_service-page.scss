@@ -1,0 +1,86 @@
+
+// Service Details Page
+.te-service-details-wrapper {
+    @include sm {
+        margin-bottom: 40px;
+    }
+    @include md {
+        margin-bottom: 60px;
+    }
+}
+.service-details-page {
+    padding-top: 120px;
+    padding-bottom: 96px;
+
+    @include sm {
+        padding-top: 80px;
+        padding-bottom: 56px;
+    }
+
+    @include md {
+        padding-top: 100px;
+        padding-bottom: 76px;
+    }
+}
+.service-details {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .image {
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    .content {
+        .te-title-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+
+            .title-inner {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    background-color: $primary-color;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 5px;
+                    font-size: 24px;
+                    color: $white;
+                }
+                .title {
+                    font-size: 48px;
+                    font-weight: 600;
+                    line-height: initial;
+                    letter-spacing: 0.5px;
+                    margin-bottom: 0;
+                    color: $black;
+                }
+            }
+        }
+    }
+}
+
+// Service Details Overview Area
+.service-details-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+
+    .te-list-item {
+        .text {
+            font-weight: 400;
+            font-size: 18px;
+            color: $gray-800;
+        }
+    }
+}

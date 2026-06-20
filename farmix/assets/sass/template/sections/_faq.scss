@@ -1,0 +1,277 @@
+.faq-layout1{
+    .faq-img{
+        position: relative;
+        .faq-img1{
+            text-align: left;
+            margin-right: 60px;
+            margin-bottom: 30px;
+            img{
+                width: 100%;
+            }
+        }
+        .faq-img2{
+            text-align: right;
+            margin-left: 60px;
+            img{
+                width: 100%;
+            }
+        }
+        .media-box1{
+            // max-width: ;
+            // max-height: ;
+            // width: 230px;
+            // height: 230px;
+            // border-radius: 50%;
+            background-color: $secondary-color;
+            display: inline-block;
+            text-align: center;
+            padding: 80px 8px;
+            border-radius: 50%;
+            width: 230px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            .media-info{
+                font-size: 54px;
+                color: $white-color;
+            }
+            .media-text{
+                color: $white-color;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+
+.accordion-style1 {
+    margin: 0 0 30px 0;
+    .accordion-item {
+      margin: 0 0 20px 0;
+      // padding: 0 30px 0 30px;
+      background-color: var(--white-color);
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+      border-radius: 0px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  
+    .accordion-button {
+      background-color: transparent;
+      border: none;
+      padding: 22px 30px 22px 65px;
+      font-size: 20px;
+      font-weight: 600;
+      font-family: var(--title-font);
+      color: $black-color;
+      text-align: left;
+      gap: 10px;
+      // padding-left: 35px;
+      &.collapsed {
+        // color: var(--title-color);
+      }
+  
+      &:after {
+        content: "\f078";
+        // content: "\f067";
+        font-family: var(--icon-font);
+        font-weight: 400;
+        border: none;
+        // width: 50px;
+        // height: 50px;
+        background-image: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        // background-color: var(--smoke-color);
+        color: #4E4E4E;
+        font-size: 16px;
+        position: absolute;
+        left: 30px;
+        // @include smooth-transition;
+      }
+  
+      &:focus {
+        box-shadow: none;
+      }
+  
+      &:not(.collapsed) {
+        background-color: $theme-color;
+        &:after {
+          transform: rotate(0);
+          content: "\f077";
+          // content: "\f068";
+          // background-color: var(--theme-color);
+          color: $black-color;
+        }
+      }
+    }
+  
+    .accordion-body {
+      border-top: 1px solid var(--border-color);
+      padding: 20px 60px 20px 35px;
+      font-size: 16px;
+  
+      p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  
+    .accordion-collapse {
+      border: none;
+    }
+  
+    &.layout2 {
+      .accordion-item {
+        padding: 0;
+        box-shadow: none;
+      }
+  
+      .accordion-button {
+        padding: 14.5px 25px;
+        font-size: 16px;
+        background-color: $theme-color;
+        color: $white-color;
+        border-radius: 0;
+  
+        &:after {
+          color: $white-color;
+        }
+  
+        &.collapsed {
+          background-color: $smoke-color;
+          color: $title-color;
+  
+          &:after {
+            color: $theme-color;
+          }
+        }
+      }
+  
+      .accordion-body {
+        border: none;
+        background-color: $smoke-color;
+        padding: 25px 25px 23px 25px;
+      }
+    }
+}
+.accordion-style2 {
+margin-bottom: 0;
+    .accordion-item {
+      margin-bottom: 0px;
+      background-color: var(--white-color);
+      border-radius: 0px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  
+    .accordion-button {
+      background-color: transparent;
+      border: none;
+      padding: 16px 30px 16px 55px;
+      font-size: 24px;
+      font-weight: 600;
+      font-family: var(--title-font);
+      color: $black-color;
+      text-align: left;
+      gap: 10px;
+      // padding-left: 35px;
+      &.collapsed {
+        // color: var(--title-color);
+      }
+  
+      &:after {
+        // content: "\f078";
+        content: "\f067";
+        font-family: var(--icon-font);
+        font-weight: 400;
+        border: 1px solid $theme-color;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        background-image: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $white-color;
+        color: #4E4E4E;
+        font-size: 16px;
+        position: absolute;
+        left: 0px;
+        border-radius: 50%;
+        &:hover{
+          background-color: $theme-color;
+
+        }
+      }
+  
+      &:focus {
+        box-shadow: none;
+      }
+  
+      &:not(.collapsed) {
+        color: $secondary-color;
+        &:after {
+          transform: rotate(0);
+          content: "\f068";
+          background-color: var(--theme-color);
+          color: $black-color;
+
+        }
+      }
+    }
+  
+    .accordion-body {
+      // border-top: 1px solid var(--border-color);
+      padding: 0px 65px 12px 35px;
+      font-size: 16px;
+      p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  
+    .accordion-collapse {
+      border: none;
+    }
+  
+    &.layout2 {
+      .accordion-item {
+        padding: 0;
+        box-shadow: none;
+      }
+  
+      .accordion-button {
+        padding: 14.5px 25px;
+        font-size: 16px;
+        background-color: $theme-color;
+        color: $white-color;
+        border-radius: 0;
+  
+        &:after {
+          color: $white-color;
+        }
+  
+        &.collapsed {
+          background-color: $smoke-color;
+          color: $title-color;
+  
+          &:after {
+            color: $theme-color;
+          }
+        }
+      }
+  
+      .accordion-body {
+        border: none;
+        background-color: $smoke-color;
+        padding: 25px 25px 23px 25px;
+      }
+    }
+}

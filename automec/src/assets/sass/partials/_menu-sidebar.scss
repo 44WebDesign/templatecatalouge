@@ -1,0 +1,143 @@
+.te-mobile-menu-bar {
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+      color: $secondary-color;
+      font-size: 22px;
+    }
+  }
+}
+.te-menu-sidebar-area {
+  position: fixed;
+  right: -485px;
+  top: 0;
+  width: 465px;
+  height: 100%;
+  background-color: $white;
+  overflow-y: scroll;
+  transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  z-index: 9999;
+
+  @include rmaxwd(560) {
+    width: 350px;
+  }
+  .te-menu-sidebar-logo {
+    display: inline-block;
+    width: 180px;
+  }
+  .te-menu-sidebar-wrapper {
+    position: relative;
+    padding: 40px;
+  }
+  &.active {
+    right: 0;
+  }
+  .te-menu-sidebar-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    .te-menu-sidebar-close-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      height: 55px;
+      width: 55px;
+      background-color: $primary-color;
+      color: $white;
+      &:hover{
+        background-color: $primary-color;
+      }
+    }
+  }
+  // Contact Info
+  .te-menu-sidebar-content {
+
+
+    .te-menu-sidebar-single-widget {
+      display: inline-block;
+      margin-top: 20px;
+      width: 100%;
+      .te-menu-sidebar-title {
+        margin-bottom: 5px;
+      }
+      .te-header-contact-info {
+        display: flex;
+        align-items: center;
+        gap: 0 24px;
+        padding: 6px 0;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        span {
+          display: flex;
+          align-items: center;
+          gap: 13px;
+          color: $secondary-color;
+          font-size: 16px;
+          font-weight: 400;
+          font-family: $body-font;
+          width: 100%;
+
+          &.te-contact-info-item {
+            gap:0 10px !important;
+          }
+          a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $secondary-color;
+            font-size: 16px;
+            font-weight: 400;
+            font-family: $body-font;
+            &:hover {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+      // Social Profile
+      .te-social-profile {
+        margin-top: 20px;
+        border-top: 1px solid #dfe2e9;
+        width: 100%;
+        padding-top: 20px;
+
+        a {
+          color: $secondary-color;
+          font-size: 22px;
+          &:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.te-body-overlay{
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  @include transition;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:hover{
+    cursor: pointer;
+  }
+
+}

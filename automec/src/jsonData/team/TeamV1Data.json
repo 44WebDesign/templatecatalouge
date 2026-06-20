@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "thumb": "team-1.jpg",
+        "name": "Alex Turner",
+        "designation": "Lead Mechanic"
+    },
+    {
+        "id": 2,
+        "thumb": "team-2.jpg",
+        "name": "Jamie Smith",
+        "designation": "Service Advisor"
+    },
+    {
+        "id": 3,
+        "thumb": "team-3.jpg",
+        "name": "Riley Johnson",
+        "designation": "Brake Specialist"
+    },
+    {
+        "id": 4,
+        "thumb": "team-4.jpg",
+        "name": "Morgan Lee",
+        "designation": "Transmission Technician"
+    },
+    {
+        "id": 5,
+        "thumb": "team-1.jpg",
+        "name": "Chris Evans",
+        "designation": "Engine Specialist"
+    },
+    {
+        "id": 6,
+        "thumb": "team-2.jpg",
+        "name": "Taylor Brooks",
+        "designation": "Auto Electrician"
+    },
+    {
+        "id": 7,
+        "thumb": "team-3.jpg",
+        "name": "Jordan Gray",
+        "designation": "Customer Support"
+    },
+    {
+        "id": 8,
+        "thumb": "team-4.jpg",
+        "name": "Sam Walker",
+        "designation": "Detailing Specialist"
+    },
+    {
+        "id": 9,
+        "thumb": "team-1.jpg",
+        "name": "Chris Evans",
+        "designation": "Engine Specialist"
+    }
+]

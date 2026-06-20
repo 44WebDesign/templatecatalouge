@@ -1,0 +1,111 @@
+.testimonial-layout1{
+    position: relative;
+    .testi-style1{
+        .auther-img{
+            background-color: $white-color;
+            border: 1px solid $theme-color;
+            border-radius: 50%;
+            position: relative;
+            padding: 5px;
+            margin-right: 20px;
+            .testi-icon{
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                border-radius: 50%;
+                background-color: $theme-color;
+                bottom: 0;
+                right: 0;
+            }
+        }
+        .auther-content{
+            .name{
+                font-size: 24px;
+                margin-bottom: 0;
+            }
+        }
+        .testi-text{
+            font-size: 22px;
+            margin-bottom: 0;
+        }
+        .auther-inner{
+            margin-bottom: 20px;
+            margin-right: 0;
+        }
+    }
+    .slick-dots{
+        text-align: left;
+        margin-bottom: 0;
+    }
+}
+.rating{
+    i{
+        color: $theme-color;
+        font-size: 13px;
+    }
+}
+.testimonial-layout2{
+    background-color: $smoke-color;
+    .slick-dots{
+        margin-top: 80;
+    }
+}
+.designation {
+    display: inline-block;
+    font-weight: 600;
+}
+.testi-style2{
+    .auther-inner {
+        display: block;
+        margin-right: 0px;
+        text-align: center;
+        margin-top: -60px;
+        // margin-bottom: 45px;
+    }
+    .testi-text{
+        color: $white-color;
+        text-align: center;
+        background-color: $secondary-color;
+        padding: 80px;
+        font-size: 24px;
+        margin-bottom: 0px;
+        padding-bottom: 95px;
+    }
+    .auther-img{
+        background-color: transparent;
+        border: 1px solid $theme-color;
+        border-radius: 50%;
+        position: relative;
+        padding: 5px;
+        margin-right: 20px;
+        display: inline-block;
+        .testi-icon{
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: $theme-color;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    .auther-content {
+        margin-top: 46px;
+    }
+}
+
+@include sm{
+    .testi-style2{
+        .auther-inner{
+            margin-bottom: 0;
+        }
+        .testi-text{
+            padding: 40px 40px 80px 40px;
+        }
+    } 
+}

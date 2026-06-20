@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "date": "30 May 2024",
+        "thumb": "l1.jpg",
+        "author": "admin",
+        "comments": "05",
+        "title": "Transforming your business with technology",
+        "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin",
+        "blogPostLink": "blog-details",
+        "btnText": "Learn More"
+    },
+    {
+        "id": 2,
+        "date": "30 May 2024",
+        "thumb": "l2.jpg",
+        "author": "admin",
+        "comments": "05",
+        "title": "Revolutionizing the world of technology",
+        "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin",
+        "blogPostLink": "blog-details",
+        "btnText": "Learn More"
+    },
+    {
+        "id": 3,
+        "date": "30 May 2024",
+        "thumb": "l3.jpg",
+        "author": "admin",
+        "comments": "05",
+        "title": "Your partner in digital transformation",
+        "text": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin",
+        "blogPostLink": "blog-details",
+        "btnText": "Learn More"
+    }
+]

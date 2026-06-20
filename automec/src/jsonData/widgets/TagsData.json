@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "All Services"
+    },
+    {
+        "id": 2,
+        "name": "Engine Repair"
+    },
+    {
+        "id": 3,
+        "name": "Transmission"
+    },
+    {
+        "id": 4,
+        "name": "Brake Service"
+    },
+    {
+        "id": 5,
+        "name": "Tire & Wheel"
+    },
+    {
+        "id": 6,
+        "name": "Diagnostics"
+    }
+]

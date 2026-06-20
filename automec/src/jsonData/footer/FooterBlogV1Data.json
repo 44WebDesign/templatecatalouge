@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "thumb": "r1.jpg",
+        "date": "January 11, 2024",
+        "title": "The standard chunk of Lorem Ipsum"
+    },
+    {
+        "id": 2,
+        "thumb": "r2.jpg",
+        "date": "January 12, 2024",
+        "title": "The standard chunk of Lorem Ipsum"
+    }
+]

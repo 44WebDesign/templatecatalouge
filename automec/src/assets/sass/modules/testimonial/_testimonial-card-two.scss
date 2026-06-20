@@ -1,0 +1,104 @@
+.te-testimonial-card-two {
+    padding: 40px;
+    background-color: $white;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+
+    .te-content-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .content {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 36px;
+            color: $gray-800;
+            margin-bottom: 0;
+            p {
+                margin-bottom: 0;
+            }
+        }
+        .te-user-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .te-user-info {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .rating-icon {
+                    color: #E8C50E;
+                    font-size: 18px;
+                }
+                .icon {
+                    color: $primary-color;
+                    font-size: 40px;
+                }
+                .name {
+                    font-size: 26px;
+                    font-weight: 900;
+                    line-height: 26px;
+                    color: $black;
+                    margin-bottom: 0;
+                }
+                .designation {
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 20px;
+                    color: $gray-800;
+                }
+            }
+            .image {
+                width: 75px;
+                height: 75px;
+                border: 2px solid $primary-color;
+                border-radius: 50%;
+                overflow: hidden;
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    &.style-2 {
+        background-color: $gray-100;
+        background-image: url("../../images/section-bg/testimonial-two-bg.png");
+        background-repeat: no-repeat;
+        box-shadow: none;
+
+        .te-content-wrapper {
+            .content {
+                font-size: 24px;
+            }
+            .te-user-meta {
+                justify-content: unset;
+                gap: 20px;
+
+                .image {
+                    width: 70px;
+                    height: 70px;
+                    border: 0;
+                }
+            }
+            .rating-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .rating-icon {
+                    color: #F1AE07;
+                }
+                .icon {
+                    color: $primary-color;
+                    font-size: 38px;
+                }
+            }
+        }
+
+    }
+}

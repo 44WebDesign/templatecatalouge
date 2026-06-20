@@ -1,0 +1,22 @@
+.history-style1{
+    background-color: $white-color;
+    padding: 40px;
+    margin-bottom: 10px;
+    .year{
+        font-size: 40px;
+        color: $secondary-color;
+        display: inline-block;
+        font-weight: 600;
+    }
+    .history-text {
+        margin-bottom: 40px;
+    }
+    .history-title{
+        font-size: 28px;
+    }
+}
+.history-layout1{
+    .icon-btn{
+        border: 1px solid $border-color;
+    }
+}

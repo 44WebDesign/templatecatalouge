@@ -1,0 +1,60 @@
+.footer {
+  &.style-2 {
+    .te-footer-sec {
+      border-bottom: 1px solid rgba(103, 104, 122, 0.6);
+      padding-top: 120px;
+      padding-bottom: 70px;
+    }
+    .te-footer-widget {
+      .te-social-profile-wrapper {
+        .te-social-profile {
+          a {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 42px;
+            height: 42px;
+            background-color: transparent;
+
+            &:hover {
+              background-color: $primary-color;
+              border-color: $primary-color;
+              color: $white;
+            }
+          }
+        }
+      }
+
+      .te-footer-widget-contact {
+        .footer-contact {
+          .contact-icon {
+            color: $primary-color;
+          }
+          .contact-text {
+            color: $white;
+          }
+        }
+      }
+    }
+    .te-footer-widget-title {
+      color: $white;
+    }
+    .footer-bottom-area .te-copyright-text p,
+    .te-footer-widget.te_widget_nav_menu li a,
+    .te-footer-widget .te_widget_latest_post ul li .te-latest-post-desc .te-latest-post-title a,
+    .te-footer-widget .te_widget_latest_post ul li .te-latest-post-desc .te-latest-post-title,
+    .te-footer-widget .te_widget_latest_post ul li .te-latest-post-desc .te-latest-post-meta,
+    .te-footer-widget .te-subscribe-form-wrapper,
+    .te-footer-bottom-menu ul li a,
+    .footer-bottom-area .te-copyright-text p a,
+    .te-footer-widget p {
+      color: $white;
+    }
+    .te-subscribe-form-widget {
+      .mc4wp-form-fields {
+        background-color: $gray-900;
+      }
+      .single-field input {
+        border-color: rgba(103, 104, 122, 0.6);
+      }
+    }
+  }
+}

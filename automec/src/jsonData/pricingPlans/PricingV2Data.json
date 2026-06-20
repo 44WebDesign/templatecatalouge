@@ -1,0 +1,113 @@
+[
+  {
+    "id": 1,
+    "sub_title": "Starter",
+    "title": "Essential Care",
+    "price": {
+      "currency": "$",
+      "price": "29",
+      "under_dot": "99",
+      "price_desc": "/mo"
+    },
+    "list": [
+      {
+        "icon": "fa-light fa-check",
+        "text": "Oil change (1x/month)"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "Tire rotation check"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "Basic inspection report"
+      },
+      {
+        "icon": "fa-thin fa-xmark",
+        "text": "Brake pad replacement"
+      },
+      {
+        "icon": "fa-thin fa-xmark",
+        "text": "Roadside assistance"
+      },
+      {
+        "icon": "fa-thin fa-xmark",
+        "text": "Interior cleaning"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "sub_title": "Professional",
+    "title": "Advanced Care",
+    "price": {
+      "currency": "$",
+      "price": "149",
+      "under_dot": "99",
+      "price_desc": "/mo"
+    },
+    "list": [
+      {
+        "icon": "fa-light fa-check",
+        "text": "Oil change (2x/month)"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "Full diagnostics report"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "Brake inspection & replacement"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "Roadside assistance"
+      },
+      {
+        "icon": "fa-thin fa-xmark",
+        "text": "Loaner car during service"
+      },
+      {
+        "icon": "fa-thin fa-xmark",
+        "text": "Exterior detailing"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "sub_title": "Enterprise",
+    "title": "Premium Auto Care",
+    "price": {
+      "currency": "$",
+      "price": "399",
+      "under_dot": "99",
+      "price_desc": "/mo"
+    },
+    "list": [
+      {
+        "icon": "fa-light fa-check",
+        "text": "Unlimited oil changes"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "Full diagnostics + repairs"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "Loaner car availability"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "Interior & exterior detailing"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "24/7 roadside & towing service"
+      },
+      {
+        "icon": "fa-light fa-check",
+        "text": "Priority booking and VIP support"
+      }
+    ]
+  }
+]

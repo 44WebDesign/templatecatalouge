@@ -1,0 +1,38 @@
+.te-process-step {
+  &.style-2 {
+    background-color: $white;
+    border: 1px solid $gray-200;
+    padding: 40px 40px 40px 64px;
+
+    @include rmaxwd(1199) {
+      padding: 40px;
+    }
+    .te-title-wrapper,
+    .content
+    {
+      align-items: unset;
+      justify-content: unset;
+      text-align: unset;
+
+    }
+    .icon {
+      width: 88px;
+      height: 88px;
+      left: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      @include rmaxwd(1199) {
+        position: unset;
+        transform: unset;
+        margin-bottom: 20px;
+      }
+      .counter-number {
+        color: $white;
+        font-size: 50px;
+        font-weight: 900;
+        line-height: initial;
+      }
+    }
+  }
+}

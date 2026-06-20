@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "thumbFull": "b1.jpg",
+        "title": "Top Engine Repair Tips Every Car Owner Should Know",
+        "author": "Mike Thompson",
+        "category": "Auto Repair",
+        "date": "March 03, 2023",
+        "comments": "4",
+        "text": "Discover essential engine maintenance tips to keep your vehicle running smoothly. Learn how regular inspections and timely oil changes can prevent costly repairs.",
+        "btnText": "READ MORE",
+        "btnIcon": "fa-solid fa-plus"
+    },
+    {
+        "id": 2,
+        "thumbFull": "b2.jpg",
+        "title": "Creating a Maintenance Plan for Your Vehicle",
+        "author": "Rachel Simmons",
+        "category": "Car Maintenance",
+        "date": "March 05, 2023",
+        "comments": "5",
+        "text": "Learn how to build a custom maintenance schedule that suits your driving habits and vehicle type. Prevent breakdowns and extend your car’s life with simple routines.",
+        "btnText": "READ MORE",
+        "btnIcon": "fa-solid fa-plus"
+    },
+    {
+        "id": 3,
+        "thumbFull": "b3.jpg",
+        "title": "Why Brake Service Shouldn’t Be Ignored",
+        "author": "James Parker",
+        "category": "Brake Repair",
+        "date": "March 07, 2023",
+        "comments": "6",
+        "text": "Brakes are one of the most critical safety components in your vehicle. Learn how to identify the signs of wear and when it’s time for a replacement or inspection.",
+        "btnText": "READ MORE",
+        "btnIcon": "fa-solid fa-plus"
+    },
+    {
+        "id": 4,
+        "thumbFull": "b4.jpg",
+        "title": "Transmission Troubles? Here’s What to Look For",
+        "author": "Carla Rivera",
+        "category": "Transmission",
+        "date": "March 09, 2023",
+        "comments": "7",
+        "text": "If your vehicle is struggling to shift gears or making strange noises, it might be time to inspect the transmission. Learn common issues and repair options.",
+        "btnText": "READ MORE",
+        "btnIcon": "fa-solid fa-plus"
+    },
+    {
+        "id": 5,
+        "thumbFull": "b3.jpg",
+        "title": "How to Choose the Right Auto Repair Shop",
+        "author": "Daniel Kim",
+        "category": "Auto Tips",
+        "date": "March 10, 2023",
+        "comments": "8",
+        "text": "Choosing a reliable auto repair shop is crucial for your car’s health. We break down the key factors to look for, from certifications to customer service.",
+        "btnText": "READ MORE",
+        "btnIcon": "fa-solid fa-plus"
+    }
+]

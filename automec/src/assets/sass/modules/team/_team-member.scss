@@ -1,0 +1,126 @@
+.te-team-card {
+  position: relative;
+
+  &:hover {
+   .image {
+     &:before {
+       height: 250%;
+       transition: all 900ms linear;
+       background-color: transparent;
+     }
+     img {
+       transform: scale(1.1);
+       @include transition;
+     }
+   }
+    .te-content-wrapper {
+      .content {
+        background-color: $primary-color;
+        @include transition;
+      }
+    }
+  }
+  .image {
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      position: absolute;
+      width: 200%;
+      height: 0%;
+      left: 50%;
+      top: 50%;
+      background-color: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%) rotate(-45deg);
+      content: "";
+      z-index: 1;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      transform: scale(1);
+      @include transition;
+    }
+  }
+  .te-content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    z-index: 2;
+    padding-right: 80px;
+    transform: translateY(-50%);
+    position: relative;
+
+    .content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+      gap: 15px;
+      background-color: $gray-200;
+      padding: 30px;
+      clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+      position: relative;
+      @include  transition;
+
+      &:before {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        background-color: $white;
+        clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+        content: "";
+        z-index: -1;;
+      }
+      .title {
+        font-size: 26px;
+        font-weight: 900;
+        line-height: 26px;
+        color: $black;
+        font-family: $heading-font;
+        margin: 0;
+      }
+      .desc {
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 400;
+        color: $text-color;
+        font-family: $heading-font;
+        margin-bottom: 10px;
+      }
+    }
+    .social {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      z-index: -1;
+      transition: all 0.5s ease-out;
+
+      a {
+        width: 35px;
+        height: 35px;
+        border-radius: 5px;
+        border: 1px solid $gray-200;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: $black;
+        flex-shrink: 0;
+        
+        &:hover {
+          color: $white;
+          border-color: $primary-color;
+          background-color: $primary-color;
+          @include transition;
+        }
+      }
+    }
+  }
+}
