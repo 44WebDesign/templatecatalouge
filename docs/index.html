@@ -355,13 +355,28 @@ let allTemplates = [];
 let activeTags = new Set();
 
 async function load() {
-  const res = await fetch('catalogue.json');
-  const data = await res.json();
-  allTemplates = data.templates || [];
-  document.getElementById('meta-line').textContent =
-    `${allTemplates.length} templates · last updated ${new Date(data.generatedAt).toLocaleString()}`;
-  buildTagFilters();
-  render();
+  try {
+    // cache-bust so GitHub Pages / browser caches don't serve a stale,
+    // possibly-empty catalogue.json after a fresh deploy
+    const res = await fetch('catalogue.json?t=' + Date.now());
+    if (!res.ok) {
+      throw new Error(`catalogue.json returned ${res.status}`);
+    }
+    const data = await res.json();
+    allTemplates = data.templates || [];
+    document.getElementById('meta-line').textContent = data.generatedAt
+      ? `${allTemplates.length} templates · last updated ${new Date(data.generatedAt).toLocaleString()}`
+      : `${allTemplates.length} templates`;
+    buildTagFilters();
+    render();
+  } catch (err) {
+    console.error('Failed to load catalogue.json:', err);
+    document.getElementById('meta-line').textContent =
+      'Could not load the catalogue. Open the browser console for details.';
+    document.getElementById('empty-state').style.display = 'block';
+    document.getElementById('empty-state').textContent =
+      'Failed to load catalogue.json — check that the file exists and the Action ran successfully.';
+  }
 }
 
 function buildTagFilters() {
