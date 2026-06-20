@@ -1,15 +1,14 @@
 {
-  "generatedAt": "2026-06-20T14:06:29.656Z",
+  "generatedAt": "2026-06-20T14:41:07.689Z",
   "templates": [
     {
       "slug": "agrica",
       "type": "build",
       "buildTool": "next",
       "folder": "agrica",
-      "contentHash": "6116d754a9fc21e80e39ad209eca192908bd0644",
-      "screenshot": null,
-      "needsManualScreenshot": true,
-      "buildError": "Build succeeded but no recognizable output folder found",
+      "contentHash": "1ca200b8ea4eb2439bbb7e9dd34841ef0a1b0f31",
+      "screenshot": "screenshots/agrica.png",
+      "needsManualScreenshot": false,
       "tags": null
     },
     {
@@ -17,7 +16,7 @@
       "type": "build",
       "buildTool": "vite",
       "folder": "automec",
-      "contentHash": "c633a0099b26150baf34fd97f8a8d8ff55ecd75c",
+      "contentHash": "9a1b3ce87f1cf2aa705fc5174ef81d2891852a18",
       "screenshot": "screenshots/automec.png",
       "needsManualScreenshot": false,
       "tags": null
@@ -27,7 +26,7 @@
       "type": "static",
       "entry": "index.html",
       "folder": "carservx",
-      "contentHash": "60e26e22f01f5eba28adea5616f72bbd307c8fa2",
+      "contentHash": "13307fcf6eecebc2bd3dc9ca2974b811a255e5bf",
       "screenshot": "screenshots/carservx.png",
       "needsManualScreenshot": false,
       "tags": null
@@ -37,7 +36,7 @@
       "type": "static",
       "entry": "index.html",
       "folder": "crank",
-      "contentHash": "791e099e8c4df54ea4804020eaf8b6e9415cae72",
+      "contentHash": "7a9a371a1fd55e881259e49d0be7ffa0609a4887",
       "screenshot": "screenshots/crank.png",
       "needsManualScreenshot": false,
       "tags": null
@@ -47,7 +46,7 @@
       "type": "static",
       "entry": "index.html",
       "folder": "farmix",
-      "contentHash": "600f973a3143a1705712f3fdb777e74aa674c4cd",
+      "contentHash": "c6e9960cd024cb1ed0e03a49486ac622e7c361ba",
       "screenshot": "screenshots/farmix.png",
       "needsManualScreenshot": false,
       "tags": null
@@ -57,7 +56,7 @@
       "type": "static",
       "entry": "index.html",
       "folder": "hotcoffee-html",
-      "contentHash": "66ff1940483b61e2f0d13792ef60233b24148c9a",
+      "contentHash": "17e43599fb7f4152c05f3adc05d70f18a5fca202",
       "screenshot": "screenshots/hotcoffee-html.png",
       "needsManualScreenshot": false,
       "tags": null
