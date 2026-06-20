@@ -600,18 +600,20 @@ function copySnippet() {
   });
 }
 
-document.getElementById('search').addEventListener('input', render);
-document.getElementById('clear-filters').addEventListener('click', () => {
-  activeTags.clear();
-  document.getElementById('search').value = '';
-  render();
-});
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('search').addEventListener('input', render);
+  document.getElementById('clear-filters').addEventListener('click', () => {
+    activeTags.clear();
+    document.getElementById('search').value = '';
+    render();
+  });
 
-document.getElementById('tag-modal').addEventListener('click', (e) => {
-  if (e.target.id === 'tag-modal') closeTagEditor();
-});
+  document.getElementById('tag-modal').addEventListener('click', (e) => {
+    if (e.target.id === 'tag-modal') closeTagEditor();
+  });
 
-load();
+  load();
+});
 </script>
 <div class="modal-overlay" id="tag-modal">
   <div class="modal">
