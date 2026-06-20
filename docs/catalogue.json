@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-20T14:41:07.689Z",
+  "generatedAt": "2026-06-20T19:30:08.805Z",
   "templates": [
     {
       "slug": "agrica",
       "type": "build",
       "buildTool": "next",
       "folder": "agrica",
-      "contentHash": "1ca200b8ea4eb2439bbb7e9dd34841ef0a1b0f31",
+      "contentHash": "6818f1e8f466242a56cec3d4626636b376ec8f2c",
       "screenshot": "screenshots/agrica.png",
       "needsManualScreenshot": false,
       "tags": null
@@ -16,7 +16,7 @@
       "type": "build",
       "buildTool": "vite",
       "folder": "automec",
-      "contentHash": "9a1b3ce87f1cf2aa705fc5174ef81d2891852a18",
+      "contentHash": "bcdadb6a4cc16b969f6156db8a2590b5db646764",
       "screenshot": "screenshots/automec.png",
       "needsManualScreenshot": false,
       "tags": null
@@ -26,7 +26,7 @@
       "type": "static",
       "entry": "index.html",
       "folder": "carservx",
-      "contentHash": "13307fcf6eecebc2bd3dc9ca2974b811a255e5bf",
+      "contentHash": "9c4651c21e9fb1ded06b00f4f208c1e026a5efdb",
       "screenshot": "screenshots/carservx.png",
       "needsManualScreenshot": false,
       "tags": null
@@ -36,7 +36,7 @@
       "type": "static",
       "entry": "index.html",
       "folder": "crank",
-      "contentHash": "7a9a371a1fd55e881259e49d0be7ffa0609a4887",
+      "contentHash": "0b7161ad4e13637e6b6ec274fc04dc4bb962f935",
       "screenshot": "screenshots/crank.png",
       "needsManualScreenshot": false,
       "tags": null
@@ -46,7 +46,7 @@
       "type": "static",
       "entry": "index.html",
       "folder": "farmix",
-      "contentHash": "c6e9960cd024cb1ed0e03a49486ac622e7c361ba",
+      "contentHash": "9d2b1b39116f86eaf099b4bf08cd46cea0ec7753",
       "screenshot": "screenshots/farmix.png",
       "needsManualScreenshot": false,
       "tags": null
@@ -56,7 +56,7 @@
       "type": "static",
       "entry": "index.html",
       "folder": "hotcoffee-html",
-      "contentHash": "17e43599fb7f4152c05f3adc05d70f18a5fca202",
+      "contentHash": "24c4c820cf5dd4ddd23126f1e759ce685af72f5b",
       "screenshot": "screenshots/hotcoffee-html.png",
       "needsManualScreenshot": false,
       "tags": null
